@@ -1,0 +1,8 @@
+name: IDTA-01003-a
+title: 'Part 3b: Data Specification - Measurement Units'
+version: 'v3.0'
+display_version: 'in progress'
+prerelease: true
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc

@@ -1,0 +1,59 @@
+= Part 3a: Data Specification Template IEC 61360 (IDTA-01003-a)
+
+*Specification of the Asset Administration Shell*
+
+====
+This specification is part of the https://industrialdigitaltwin.org/en/content-hub/aasspecifications[Asset Administration Shell Specification series].
+====
+
+== Version
+
+This is the first version 3.0 of the specification IDTA-01003-b.
+
+
+[#metamodel-versions]
+== Metamodel Versions
+
+This document uses the following parts of the “Specification of the Asset Administration Shell” series:
+
+* IDTA-01001 Part 1: Metamodel in version 3.2 xref:bibliography.adoc#bib22[[22\]]
+
+== Notice
+
+Copyright: Industrial Digital Twin Association e.V. (IDTA)
+
+IDTA Document Number: IDTA-01003-b-3-0
+
+DOI: **TO BE ADDED**
+
+This work is licensed under a
+https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International License].
+
+SPDX-License-Identifier: CC-BY-4.0
+
+** DATE TO BE ADDED **
+
+== How to Get in Contact
+
+Contact: https://industrialdigitaltwin.org/en/contact[IDTA]
+
+Sources: https://github.com/admin-shell-io/aas-specs-iec61360[GitHub]
+
+Feedback:
+
+* https://github.com/admin-shell-io/aas-specs-iec61360/issues/new/choose[new issues, bugs]
+
+* https://github.com/admin-shell-io/questions-and-answers[Questions and Answers]
+
+==  Editorial Notes
+
+=== History
+
+This document, version 3.0, was produced from xxx
+
+include::./shared/versioning.adoc[]
+
+include::./shared/conformance.adoc[]
+
+
+
