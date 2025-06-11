@@ -14,7 +14,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 = Handling of Constraints
 
-Constraints are prefixed with *AASc-3a-* followed by a three-digit number.
+Constraints are prefixed with *AASc-3b-* followed by a three-digit number.
 The "c" in "AASc-" was motivated by "Concept Description".
 The numbering of constraints is unique within namespace AASc-3a; a number of a constraint that was removed will not be used again.
 

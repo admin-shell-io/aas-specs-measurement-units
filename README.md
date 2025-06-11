@@ -1,4 +1,4 @@
-# IDTA-01003-b - Specification of the Asset Administration Shell: Data Specification for Measurement Units
+# IDTA-01003-b - Specification of the Asset Administration Shell: Data Specification for Units of Measure
 
 [![Check](
 https://github.com/admin-shell-io/aas-specs/workflows/Check/badge.svg
@@ -11,7 +11,7 @@ https://licensebuttons.net/l/by/4.0/88x31.png
 https://creativecommons.org/licenses/by/4.0/
 )
 
-This repository contains the specification of the data specification for measurement units. 
+This repository contains the specification of the data specification for units of measure. 
 
 
 ## Industrial Digital Twin Association (IDTA)
