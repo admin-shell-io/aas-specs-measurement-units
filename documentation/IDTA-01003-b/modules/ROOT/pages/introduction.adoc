@@ -8,13 +8,11 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ////
 
---> ToDo: extend Related Standards
-
 ==  Introduction
 
 This document is part of the series "Specification of the Asset Administration Shell" that provide the specifications for interoperable usage of the Asset Administration Shell.
 
-This part defines a technology-neutral specification of a data specification template, enabling the description of concept descriptions for measurement units.
+This part defines a technology-neutral specification of a data specification template, enabling the description of concept descriptions for units of measurement.
 This UML metamodel serves as the basis for deriving several different formats for exchanging Asset Administration Shells, e.g. for XML, JSON, RDF as described in Part 1 of the document series (IDTA-01001).
 Data Specification Templates are implemented using the embedded data specification approach.
 This means, that the implementation is part of the overall schemas as defined for IDTA-01001.
@@ -45,19 +43,19 @@ Different use cases for modelling Units of Measures have to be distinguished. Th
 
 1.	Stating that a value has a specific UoM
 2.	Stating that a value has a specific UoM and providing information for interpreting that UoM
-3.	Stating that a value has a user-defined UoM and providing that new definition
+3.	Stating that a value has a user-defined UoM and providing a complete definition
 
-Use Case 1 can be addressed using Part 3a: Data Specification - IEC61360 (IDTA-01003-a). This part provides the two attributes that allow to state a UoM for SubmodelElements with a value: _DataSpecificationIec61360/unitId_ and _DataSpecificationIec61360/unit_. The Data Specification Units of Measure is not needed for this use case.
+Use Case 1 can be addressed using Part 3a: Data Specification - IEC61360 (IDTA-01003-a). This part provides the two attributes that allow to state a UoM for SubmodelElements with a numerical value, i.e. _Property_ and _Range_: _DataSpecificationIec61360/unitId_ and _DataSpecificationIec61360/unit_. The Data Specification Units of Measure is not needed for this use case.
 Use Case 2 is the topic of the current version of this document. In addition to Use Case 1, the aim is to provide a minimal set of additional attributes to describe a Unit of Measure and reference to external dictionaries for further information. 
 Use Case 3 is currently out of scope but might be addressed in future versions of this document.
 
 [#related-standards]
 == Related Standards
 
-A unit of measure defines the magnitude of a quantity, e.g. length is a quantity and metre is a unit with a defined magnitude. Multiple data dictionaries that define units and quantities exist with varying size and scope, e.g. ECLASS, IEC CDD or UNECE Recommendation 20. The range of units ranges from basic SI units over vertical specific units to non-physical units such as “piece”. The attributes for describing UoM defined in this document have been chosen to be as generic as possible, to allow the usage of any of these dictionaries.  
+A unit of measure defines the magnitude of a quantity, e.g. length is a quantity and metre is a unit of that quantity with a defined magnitude. Multiple data dictionaries that define units and quantities exist with varying size and scope, e.g. ECLASS, IEC CDD or UNECE Recommendation 20. The lists of units ranges from basic SI units over vertical specific units to non-physical units such as “piece”. The attributes for describing UoM defined in this document have been chosen to be as generic as possible, to allow the usage of any of these dictionaries.  
 
 In the following some examples for existing data dictionaries are given.
-IEC maintains in IEC CDD an IEC TS 62720 compliant collection of some 1500 units. footnote:[https://cdd.iec.ch/]
+IEC maintains in IEC CDD an IEC TS 62720 compliant collection of mover than 1800 units. footnote:[https://cdd.iec.ch/]
 ECLASS and IEC CDD are continuously working on harmonizing their dictionaries, including the UoM. To assure interoperability when using units these dictionaries relate physical units to their SI unit and provide the respective conversion factors. (However, this is not yet available for all physical units). 
 UNECE Rec. 20 focuses on providing three character alphabetic and alphanumeric codes for representing units of measurement used in international trade. footnote:[https://unece.org/trade/uncefact/cl-recommendations],footnote:[https://service.unece.org/trade/uncefact/vocabulary/rec20/] 
 The OPC Foundation does not define a unit dictionary, but provides means to model units and quantities. footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3], footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6]
@@ -185,5 +183,96 @@ map DataSpecificationUnitOfMeasure {
 
  Property::semanticId --> DataSpecificationIec61360::id
  DataSpecificationIec61360::unitId --> DataSpecificationUnitOfMeasure::id
+
+@enduml
+
+=== General Remarks for Working with Units of Measure
+
+This subsection states some general remarks for working with Units of Measure that have proven to be helpful when kept in mind.
+
+- If neither a _unit_ or _unitId_ is supplied in _DataSpecification61360_, it is assumed that the default unit of the property definition according to the semantic repository (e.g. ECLASS) is used if available. 
+
+- If a _unit_ or _unitId_ is supplied that differs from the original property's dictionary entry, then the entry in the Data Specification takes precendence. 
+
+- Using a unit that differs from the default unit of the property's dictionary entry does not break the semantic of that property. The whole purpose of a stringent semantic UoM dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. 
+
+- If needed, it is possible to model multiple properties that have the identical dictionary entry with different UoM. However, because Concept Descriptions are unique (identifiable) this modelling task is quite complicated and therefore not recommended. Figure <<image-ex-different-UoM>> illustrates that the change of the unit does not break the semantic of the property, but it does break the addressability of the Concept Description. Meaning, because the _id_ of the Concept Description must be unique for different contents, the original semanticID can only be transported using the _isCaseOf_ attribute.
+
+.Illustration of modelling two properties with identical semantics with the exception of the UoM
+[[image-ex-different-UoM]]
+@startuml
+map property_1 {
+    idShort => heightOfControllerA
+    description => "Height of Controller"
+    semanticId => type=ConceptDescription, value=0173-1#02-BAA020#011
+    valueType => real
+    value => 54,4
+}
+
+map property_2 {
+    idShort => heightOfControllerB
+    description => "Height of Controller"
+    semanticId => type=ConceptDescription, value=myHeight
+    valueType => real
+    value => 17,2
+}
+
+map  DataSpecificationIec61360_1 {
+  id => 0173-1#02-BAA020#011
+  idShort => height
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
+  isCaseOf => 0173-1#02-BAA020#011
+  preferredName  => height
+  shortName => height
+  unit => mm
+  unitId => type=ConceptDescription, value=0173-1#05-AAA480#003
+  symbol => h
+}
+
+map  DataSpecificationIec61360_2 {
+  id => myHeight
+  idShort => height
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
+  isCaseOf => 0173-1#02-BAA020#011
+  preferredName  => height
+  shortName => height
+  unit => cm
+  unitId => type=ConceptDescription, value=0173-1#05-AAA008#003
+  symbol => h
+}
+
+map DataSpecificationUnitOfMeasure_1 {
+  id => 0173-1#05-AAA480#003
+  idShort => millimeter
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
+  preferredName => "millimeter"
+  symbol => "mm"
+  code => 0173-1#05-AAA480#003
+  definition => "0,001 fold of the SI base unit metre"
+  preferredNameQuantity => "distance"
+  quantityID => 0173-1#Z4-BAJ199#003
+  classificationSystem => "ECLASS"
+}
+
+map DataSpecificationUnitOfMeasure_2 {
+  id => 0173-1#05-AAA008#003
+  idShort => millimeter
+  displayName =>
+  description =>
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
+  isCaseOf =>
+  preferredName => "centimeter"
+  symbol => "cm"
+  code => 0173-1#05-AAA008#003
+  definition => "0,01 fold of the SI base unit metre"
+  preferredNameQuantity => "distance"
+  quantityID => 0173-1#Z4-BAJ199#003
+  classificationSystem => "ECLASS"
+}
+
+property_1::semanticId -> DataSpecificationIec61360_1::id
+property_2::semanticId -> DataSpecificationIec61360_2::id
+DataSpecificationIec61360_1::unitId -> DataSpecificationUnitOfMeasure_1::id
+DataSpecificationIec61360_2::unitId -> DataSpecificationUnitOfMeasure_2::id
 
 @enduml
