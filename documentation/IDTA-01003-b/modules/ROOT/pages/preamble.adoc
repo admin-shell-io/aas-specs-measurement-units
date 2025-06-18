@@ -57,18 +57,11 @@ xref:introduction.adoc#predefined-data-specification-templates[Predefined Data S
 xref:specification.adoc[Specification (normative)] is the main normative part of the document.
 It specifies the data specification templates supporting IEC 61360.
 
-xref:specification.adoc#mapping-iec-61360-data-types-to-xsd-data-types[Mapping IEC 61360 Data Types to XSD Data Types] explains how data types of IEC 61360 are mapped to data types of values as introduced in Part 1.
-
-xref:specification.adoc#category-of-concept-descriptions[Category of Concept Descriptions] introduces categories for concept descriptions and how they are used in combination with the data specification template IEC61360.
-The constraints as defined in xref:specification.adoc#cross-constraints-and-invariants-for-predefined-data-specifications-normative[Cross-Constraints and Invariants for Predefined Data Specifications (normative)] also mainly refer to the rules on how these categories should be applied.
-
-====
-Note: since categories are deprecated since V3.0, Clause xref:specification.adoc#category-of-concept-descriptions[Category of Concept Descriptions] can also be skipped.
-====
-
 xref:specification.adoc#primitive-and-simple-data-types-normative[Primitive and Simple Data Types (normative)] specifies the data types used in the data specification.
 
 xref:specification.adoc#mappings-to-data-formats-to-share-i40-compliant-information-normative[Mappings to Data Formats to Share I4.0-Compliant Information (normative)] provides information on the exchange of information compliant to this specification in existing data formats like XML, AutomationML, OPC UA information models, JSON or RDF.
+
+xref:specification.adoc#mappings-from-common-dictionaries[Mappings from Common dictionaries] explains how to map the attributes found in exemplary dictionaries to the data elements defined in this document.
 
 Finally, xref:summary-and-outlook.adoc[] summarizes the content and gives an outlook on future work.
 

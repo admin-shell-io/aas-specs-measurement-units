@@ -95,7 +95,7 @@ package "Data Specification Templates - Part 1"  {
 
 class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
   +preferredName: LangStringSet
-  +symbol: string
+  +symbol: LangStringSet
   +code: string[0..1]
   +definition: LangStringSet[0..1]
   +preferredNameQuantity: LangStringSet[0..1]

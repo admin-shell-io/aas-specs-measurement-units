@@ -45,7 +45,7 @@ class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
   +definition: LangStringSet[0..1]
   +preferredNameQuantity: LangStringSet[0..1]
   +quantityID: Identifier[0..1]
-  +lassificationSystem: string[0..1]
+  +classificationSystem: string[0..1]
 }
 @enduml
 
@@ -156,6 +156,7 @@ Example: “ECLASS”
 
 |===
 
+[#primitive-and-simple-data-types-normative]
 == Primitive and Simple Data Types (normative)
 === Predefined Simple Data Types
 
@@ -270,14 +271,14 @@ The table below provides the information for mapping the entries of the most com
 [%header, width="100%",cols="1,1,1,1,1,1"]
 |===
 |AAS UoM |ECLASS |IEC CDD |UNECE Rec. 20 |OPC UA |BIPM
-e|id e|IRDI e|Code |_prefix_ footnote:prefix[see Table <<Prefixes>>] + _unitId_  |_prefix_ footnote:prefix[] + _unitId_ e|PID footnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere]
+e|conceptDescription/id e|IRDI (or IRI footnote:prefix[see Table <<Prefixes>>]) e|Code |_prefix_ footnote:prefix[see Table <<Prefixes>>] + _Common Code_  |_prefix_ footnote:prefix[] + _unitId_ e|PID footnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere]
 
 e|preferredName e|Preferred name e|Preferred name e|Name e|description e|Unit
 e|symbol  e|Short name e|Short name e|Symbol e|displayName e|Symbol
 e|code  e|IRDI e|Code e|Common Code e|unitId e|PID
 e|definition  e|Definition e|Definition e|Description e|--- e|Definition
-e|preferredNameQuantity  e|Quantity e| e|Quantity e|QuantityType e|Quantity
-e|quantityID  e| e| |--- |--- e|PID (of Quantity)
+e|preferredNameQuantity  e|Quantity e|Quantity e|Quantity e|QuantityType e|Quantity
+e|quantityID  e|QuantityID e|QuantityID |--- |--- e|PID (of Quantity)
 e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM"
 
 |===
@@ -286,25 +287,25 @@ e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM"
 .Prefixes
 [%header, width="100%",cols="1,1,1"]
 |===
-|Dictionary |_prefix_ |Example
+|Dictionary |_prefix_ |Example for _id_
 |UNECE e|"uncefact:UNECERec20Code/" e|"uncefact:UNECERec20Code/MMT"
 
-|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/ 
-|BIPM  e|Short name e|Short name 
+|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/5131860" footnote:["MMT" -> 0x004E4E54 -> 5131860]
+|ECLASS | "https://api.eclass-cdp.com/" | "https://api.eclass-cdp.com/0173-1-05-AAA480-003"
 |===
 
 
 ====
-Note: OPC UA uses the attribute _namespaceUri_ to denote the classification system. It is recommended to reference the original dictionary to avoid "double-mapping", if possible. 
+Note: OPC UA uses the attribute _namespaceUri_ to denote the classification system. It is recommended to reference that classification system directly to avoid "double-mapping", if possible. E.g. the Table <<Prefixes>> illustrates how OPC UA maps the UNECE Common Code to an integer value (see explanation below). 
 
 In the OPC UA Specification Part 8, 5.6.3.4 a mapping from UNECE to the OPC UA information model is described as follows:
 
 - The _namespaceUri_ shall be http://www.opcfoundation.org/UA/units/un/cefact
 - The Common Code (represented as an alphanumeric variable length of up to 3 characters) has been converted into a 32 Bit Integer and is used for the _unitId_. The following pseudo code specifies the conversion algorithm:
 
+[source]
 Int32 unitId = 0; Int32 c; for (i=0; i<=3;i++) {
-c = CommonCode[i]; if (c == 0) break; // end of Common Code unitId = unitId << 8; unitId = unitId | c;}
+c = CommonCode[i]; if (c == 0) break; // end of Common Code 
+unitId = unitId << 8; unitId = unitId | c;}
 
-- The *Symbol* field shall be used as invariant locale for _displayName_.
-- The *Name* field shall be used as invariant locale for _description_. 
 ====
