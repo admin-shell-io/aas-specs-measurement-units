@@ -107,6 +107,7 @@ package "Data Specification Templates - Part 1"  {
     abstract class DataSpecificationContent <<abstract>> {}
 }
 
+// todo: https://github.com/admin-shell-io/aas-specs-measurement-units/pull/2#discussion_r2231585238
 class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
   +preferredName: LangStringSet
   +symbol: LangStringSet
@@ -149,58 +150,41 @@ This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>
 @startuml
 map Property {
     idShort => heightOfController7411
-    displayName => 
     description => "Height of Controller"
-    semanticId => type=ConceptDescription, value=0173-1#02-BAA020#011
-    supplementalSemanticId =>
-    qualifier =>
-    dataSpecification =>
-    valueType => real
+    semanticId => type=ExternalReference, value=0173-1#02-BAA020#011
+    valueType => xs:real
     value => 54,4
-    valueId =>
 }
 
 map  DataSpecificationIec61360 {
   administration =>
   id => 0173-1#02-BAA020#011
   idShort => height
-  displayName =>
-  description =>
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
-  isCaseOf =>
   preferredName  => height
   shortName => height
   unit => mm
-  unitId => type=ConceptDescription, value=0173-1#05-AAA480#003
-  sourceOfDefinition => 
+  unitId => type=ExternalReference, value=0173-1#05-AAA480#003
   symbol => h
-  dataType => 
-  definition => 
-  valueFormat => 
-  valueList => 
-  value => 
-  levelType => 
+  dataType => REAL_MEASURE
+  definition => "with objects with preferred position of use, the dimension which is generally measured oriented to gravity and generally measured perpendicular to the supporting surface"
 }
 
 map DataSpecificationUnitOfMeasure {
-  administration =>
   id => 0173-1#05-AAA480#003
   idShort => millimeter
-  displayName =>
-  description =>
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
-  isCaseOf =>
   preferredName => "millimeter"
   symbol => "mm"
   code => 0173-1#05-AAA480#003
   definition => "0,001 fold of the SI base unit metre"
   preferredNameQuantity => "distance"
   quantityID => 0173-1#Z4-BAJ199#003
-  classificationSystem => "ECLASS"
+  classificationSystem => "ECLASS" # todo: https://github.com/admin-shell-io/aas-specs-measurement-units/pull/2#discussion_r2231599688
 }
 
- Property::semanticId --> DataSpecificationIec61360::id
- DataSpecificationIec61360::unitId --> DataSpecificationUnitOfMeasure::id
+ Property/semanticId --> DataSpecificationIec61360/id
+ DataSpecificationIec61360/unitId --> DataSpecificationUnitOfMeasure/id
 
 @enduml
 
@@ -226,8 +210,8 @@ Meaning, because the _id_ of the Concept Description must be unique for differen
 map property_1 {
     idShort => heightOfControllerA
     description => "Height of Controller"
-    semanticId => type=ConceptDescription, value=0173-1#02-BAA020#011
-    valueType => real
+    semanticId => type=ExternalReference, value=0173-1#02-BAA020#011
+    valueType => xs:real
     value => 54,4
 }
 
@@ -235,7 +219,7 @@ map property_2 {
     idShort => heightOfControllerB
     description => "Height of Controller"
     semanticId => type=ConceptDescription, value=myHeight
-    valueType => real
+    valueType => xs:real
     value => 17,2
 }
 
@@ -247,7 +231,7 @@ map  DataSpecificationIec61360_1 {
   preferredName  => height
   shortName => height
   unit => mm
-  unitId => type=ConceptDescription, value=0173-1#05-AAA480#003
+  unitId => type=ExternalReference, value=0173-1#05-AAA480#003
   symbol => h
 }
 
@@ -259,7 +243,7 @@ map  DataSpecificationIec61360_2 {
   preferredName  => height
   shortName => height
   unit => cm
-  unitId => type=ConceptDescription, value=0173-1#05-AAA008#003
+  unitId => type=ExternalReference, value=0173-1#05-AAA008#003
   symbol => h
 }
 
@@ -292,9 +276,9 @@ map DataSpecificationUnitOfMeasure_2 {
   classificationSystem => "ECLASS"
 }
 
-property_1::semanticId -> DataSpecificationIec61360_1::id
-property_2::semanticId -> DataSpecificationIec61360_2::id
-DataSpecificationIec61360_1::unitId -> DataSpecificationUnitOfMeasure_1::id
-DataSpecificationIec61360_2::unitId -> DataSpecificationUnitOfMeasure_2::id
+property_1/semanticId -> DataSpecificationIec61360_1/id
+property_2/semanticId -> DataSpecificationIec61360_2/id
+DataSpecificationIec61360_1/unitId -> DataSpecificationUnitOfMeasure_1/id
+DataSpecificationIec61360_2/unitId -> DataSpecificationUnitOfMeasure_2/id
 
 @enduml
