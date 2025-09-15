@@ -86,7 +86,7 @@ Symbol of the unit
 
 Example: “mm”
 
-|xref:string[string] |1
+|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |1
 
 // code
 .2+e|[[data-specification-content-code]]code 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/code`
@@ -98,7 +98,7 @@ Note: This is relevant if the classification system references the units differe
 ====
 Example: “MMT”
 
-|xref:string[string] |0..1
+|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
 
 // definition
 .2+e|[[data-specification-content-definition]]definition 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/definition`
@@ -108,7 +108,7 @@ Definition in different languages
 
 Example: “0,001 fold of the SI base unit metre”
 
-|xref:LangStringSet[LangStringSet] |0..1
+|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[LangStringSet] |0..1
 
 // preferredNameQuantity
 .2+e|[[data-specification-content-preferredNameQuantity]]preferredNameQuantity 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/preferredNameQuantity`
@@ -139,7 +139,7 @@ preferredNameQuantity and quantityID must be consistent if both attributes are s
 Example:  0173-1#Z4-BAJ199#002
 
 
-|xref:IfierngSet[Identifier] |0..1
+|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[Identifier] |0..1
 
 // ClassificationSystem
 .2+e|[[data-specification-content-classificationSystem]]classificationSystem 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/classificationSystem`
@@ -147,36 +147,17 @@ Example:  0173-1#Z4-BAJ199#002
 a|
 Name of the classification system used for the definition of units and quantities
 
-preferredNameQuantity and quantityID must be consistent if both attributes are set
-
 Example: “ECLASS”
 
 
-|xref:string[string] |0..1
+|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
 
 |===
 
 [#primitive-and-simple-data-types-normative]
 == Primitive and Simple Data Types (normative)
-=== Predefined Simple Data Types
 
-The metamodel of the Asset Administration Shell uses some of the predefined simple data types of the  XML Schema Definition (XSD) as its basic data types.
-For an overview of the types used in this document, see <<table-simple-data-types>>.
-Their definition is outside the scope of this document.
-
-The meaning and format of xsd types is specified in XML Schema 1.0 (https://www.w3.org/TR/xmlschema-2).
-The simple type "langString" is specified in the Resource Description Framework (RDF)footnote:[see: https://www.w3.org/TR/rdf11-concepts/].
-
-.Simple Data Types Used in Metamodel
-[[table-simple-data-types]]
-[width="100%",cols="12%,18%,40%,30%",options="header",]
-|===
-|*Source* |*Basic Data Type* |*Value Range* |*Sample Values*
-|xsd |https://www.w3.org/TR/xmlschema-2/#string[string] |Character string (but not all Unicode character strings) |"Hello world", "Καλημέρα κόσμε",ハローワールド"
-|rdf |langString |Strings with language tags |"Hello"@en, "Hallo"@de. Note that this is written in RDF/Turtle syntax, and that only "Hello" and "Hallo" are the actual values.
-|===
-
-Simple data types start with a small letter.
+All simple data types from link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1/spec-metamodel/datatypes.html#predefined_simple_data_types[Part 1] xref:bibliography.adoc#bib1[[1\]] apply also to the specifications described in this document.
 
 === Basic and Primitive Data Types
 
@@ -190,35 +171,7 @@ Primitive data types start with a capital letter.
 |*Primitive* |*Definition* |*Value Examples*
 
 |ShortLangStringSet a|
-_A LangStringSet with text values between 1 and 255 characters._
-
-
-a|
-
-----
-
-|LangStringSet a|
-_Array of elements of type langString_
-
-
-====
-Note 1: langString is a RDF data type
-====
-
-
-
-====
-Note 2: a langString is a string value tagged with a language code
-====
-
-
-The realization of a langString depends on the serialization rules for a technology.
-
-
-====
-Note: as defined in Part 1 Metamodel, IDTA-01001
-====
-
+_A link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[LangStringSet] with text values between 1 and 255 characters._
 
 a|
 In xml:
@@ -298,8 +251,8 @@ e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM"
 |Dictionary |_prefix_ |Example for _id_
 |UNECE e|"uncefact:UNECERec20Code/" e|"uncefact:UNECERec20Code/MMT"
 
-|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/5131860"footnote:["MMT" -> 0x004E4E54 -> 5131860]
-|ECLASS | "https://api.eclass-cdp.com/" | "https://api.eclass-cdp.com/0173-1-05-AAA480-003"
+|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/5131860" footnote:["MMT" -> 0x004E4E54 -> 5131860]
+|ECLASS | "https://api.eclass-cdp.com/" e| "https://api.eclass-cdp.com/0173-1-05-AAA480-003"
 |===
 
 
