@@ -192,17 +192,17 @@ map DataSpecificationUnitOfMeasure {
 
 This subsection states some general remarks for working with Units of Measure that have proven to be helpful when kept in mind.
 
-- If neither a _unit_ or _unitId_ is supplied in _DataSpecification61360_, it is assumed that the default unit of the property definition according to the semantic repository (e.g. ECLASS) is used if available.
+- If neither a _unit_ or _unitId_ is supplied in _DataSpecification61360_, it is assumed that the default unit of the property definition according to the semantic repository (e.g. ECLASS) is used if available. // todo: critical statement as ECLASS default units are not commonly konwn.
 
 - If a _unit_ or _unitId_ is supplied that differs from the original property's dictionary entry, then the entry in the Data Specification takes precendence.
 
 - Using a unit that differs from the default unit of the property's dictionary entry does not break the semantic of that property.
-The whole purpose of a stringent semantic UoM dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another.
+The whole purpose of a stringent semantic UoM dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. // todo: critical statement as differing units easily break system interoperability if not handled properly.
 
 - If needed, it is possible to model multiple properties that have the identical dictionary entry with different UoM.
 However, because Concept Descriptions are unique (identifiable) this modelling task is quite complicated and therefore not recommended.
 Figure <<image-ex-different-UoM>> illustrates that the change of the unit does not break the semantic of the property, but it does break the addressability of the Concept Description.
-Meaning, because the _id_ of the Concept Description must be unique for different contents, the original semanticID can only be transported using the _isCaseOf_ attribute.
+As the _id_ of the Concept Description must be unique for different contents, the original semanticID can only be transported using the _isCaseOf_ attribute.
 
 .Illustration of modelling two properties with identical semantics with the exception of the UoM
 [[image-ex-different-UoM]]
