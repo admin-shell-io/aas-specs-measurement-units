@@ -49,7 +49,7 @@ _[SOURCE: IEC TR 62390:2005-01, 3.1.4]_
 
 value that can be looked up in a dictionary and can be translated
 
-_[SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conceptual-data-model[ECLASS] footnote:[In IEC61360:2017, this refers to a "term" of a value list]]_
+_[SOURCE: link:https://eclass.eu/support/technical-specification/data-model/conceptual-data-model[ECLASS]footnote:[In IEC61360:2017, this refers to a "term" of a value list]]_
 
 
 *identifier (ID)*::

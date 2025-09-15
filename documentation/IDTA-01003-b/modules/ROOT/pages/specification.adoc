@@ -271,7 +271,7 @@ The table below provides the information for mapping the entries of the most com
 [%header, width="100%",cols="1,1,1,1,1,1"]
 |===
 |AAS UoM |ECLASS |IEC CDD |UNECE Rec. 20 |OPC UA |BIPM
-e|conceptDescription/id e|IRDI (or IRI footnote:prefix[see Table <<Prefixes>>]) e|Code |_prefix_ footnote:prefix[see Table <<Prefixes>>] + _Common Code_  |_prefix_ footnote:prefix[] + _unitId_ e|PID footnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere]
+e|conceptDescription/id e|IRDI (or IRIfootnote:prefix[see Table <<Prefixes>>]) e|Code |_prefix_footnote:prefix[see Table <<Prefixes>>] + _Common Code_  |_prefix_footnote:prefix[] + _unitId_ e|PIDfootnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere]
 
 e|preferredName e|Preferred name e|Preferred name e|Name e|description e|Unit
 e|symbol  e|Short name e|Short name e|Symbol e|displayName e|Symbol
@@ -290,7 +290,7 @@ e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM"
 |Dictionary |_prefix_ |Example for _id_
 |UNECE e|"uncefact:UNECERec20Code/" e|"uncefact:UNECERec20Code/MMT"
 
-|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/5131860" footnote:["MMT" -> 0x004E4E54 -> 5131860]
+|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/5131860"footnote:["MMT" -> 0x004E4E54 -> 5131860]
 |ECLASS | "https://api.eclass-cdp.com/" | "https://api.eclass-cdp.com/0173-1-05-AAA480-003"
 |===
 

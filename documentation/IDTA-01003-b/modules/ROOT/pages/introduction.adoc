@@ -61,14 +61,14 @@ The lists of units ranges from basic SI units over vertical specific units to no
 The attributes for describing UoM defined in this document have been chosen to be as generic as possible, to allow the usage of any of these dictionaries.
 
 In the following some examples for existing data dictionaries are given.
-IEC maintains in IEC CDD an IEC TS 62720 compliant collection of mover than 1800 units. footnote:[https://cdd.iec.ch/]
+IEC maintains in IEC CDD an IEC TS 62720 compliant collection of mover than 1800 units.footnote:[https://cdd.iec.ch/]
 ECLASS and IEC CDD are continuously working on harmonizing their dictionaries, including the UoM.
 To assure interoperability when using units these dictionaries relate physical units to their SI unit and provide the respective conversion factors.
 (However, this is not yet available for all physical units).
-UNECE Rec. 20 focuses on providing three character alphabetic and alphanumeric codes for representing units of measurement used in international trade. footnote:[https://unece.org/trade/uncefact/cl-recommendations],footnote:[https://service.unece.org/trade/uncefact/vocabulary/rec20/]
-The OPC Foundation does not define a unit dictionary, but provides means to model units and quantities. footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3], footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6]
+UNECE Rec. 20 focuses on providing three character alphabetic and alphanumeric codes for representing units of measurement used in international trade.footnote:[https://unece.org/trade/uncefact/cl-recommendations],footnote:[https://service.unece.org/trade/uncefact/vocabulary/rec20/]
+The OPC Foundation does not define a unit dictionary, but provides means to model units and quantities.footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3],footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6]
 The Bureau International des Poids et Mesures (BIPM) is the international organization through which Member States work together on matters related to metrology.
-As the home of the International System of Units (SI) it also lists a set of SI-related units and quantities as part of the SI digital frameweor. footnote:[https://si-digital-framework.org].
+As the home of the International System of Units (SI) it also lists a set of SI-related units and quantities as part of the SI digital frameweor.footnote:[https://si-digital-framework.org].
 
 [#predefined-data-specification-templates]
 == Predefined Data Specification Templates 
