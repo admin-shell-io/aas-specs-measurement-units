@@ -107,13 +107,12 @@ package "Data Specification Templates - Part 1"  {
     abstract class DataSpecificationContent <<abstract>> {}
 }
 
-// todo: https://github.com/admin-shell-io/aas-specs-measurement-units/pull/2#discussion_r2231585238
 class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
-  +preferredName: LangStringSet
-  +symbol: LangStringSet
+  +preferredName: ShortLangStringSet
+  +symbol: string
   +code: string[0..1]
   +definition: LangStringSet[0..1]
-  +preferredNameQuantity: LangStringSet[0..1]
+  +preferredNameQuantity: ShortLangStringSet[0..1]
   +quantityID: Identifier[0..1]
   +classificationSystem: string[0..1]
 }
@@ -180,7 +179,7 @@ map DataSpecificationUnitOfMeasure {
   definition => "0,001 fold of the SI base unit metre"
   preferredNameQuantity => "distance"
   quantityID => 0173-1#Z4-BAJ199#003
-  classificationSystem => "ECLASS" # todo: https://github.com/admin-shell-io/aas-specs-measurement-units/pull/2#discussion_r2231599688
+  classificationSystem => "ECLASS"
 }
 
  Property/semanticId --> DataSpecificationIec61360/id
@@ -192,7 +191,9 @@ map DataSpecificationUnitOfMeasure {
 
 This subsection states some general remarks for working with Units of Measure that have proven to be helpful when kept in mind.
 
-- If neither a _unit_ or _unitId_ is supplied in _DataSpecification61360_, it is assumed that the default unit of the property definition according to the semantic repository (e.g. ECLASS) is used if available. // todo: critical statement as ECLASS default units are not commonly konwn.
+- If neither a _unit_ or _unitId_ is supplied in _DataSpecification61360_, the default unit of the property definition according to the semantic repository (e.g. ECLASS) is used. 
+
+- If the the applied semantic repository does not define a default unit, either _unit_ or _unitId_ must be provided.
 
 - If a _unit_ or _unitId_ is supplied that differs from the original property's dictionary entry, then the entry in the Data Specification takes precendence.
 
