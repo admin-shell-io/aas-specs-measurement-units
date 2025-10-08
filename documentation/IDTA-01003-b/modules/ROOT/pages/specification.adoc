@@ -226,21 +226,22 @@ As mentioned in the introduction of this document several dictionaries for units
 
 === Mapping
 
-The table below provides the information for mapping the entries of the most common dictionaries (or data models in case of OPC UA) for UoM to the Concept Description specified in this document. 
+The table below provides the information for mapping the entries of the most common dictionaries or data models for UoM to the Concept Description specified in this document. 
 
 .Mappings of data dictionaries
-[%header, width="100%",cols="1,1,1,1,1,1"]
+[%header, width="100%",cols="1,1,1,1,1,1,1"]
 |===
-|AAS UoM |ECLASS |IEC CDD |UNECE Rec. 20 |OPC UA |BIPM
-e|conceptDescription/id e|IRDI (or IRIfootnote:prefix[see Table <<Prefixes>>]) e|Code |_prefix_footnote:prefix[see Table <<Prefixes>>] + _Common Code_  |_prefix_footnote:prefix[] + _unitId_ e|PIDfootnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere]
+|AAS UoM |ECLASS |IEC CDD |UNECE Rec. 20 |OPC UA |BIPM | SAMMfootnote:[https://eclipse-esmf.github.io/samm-specification/snapshot/units.html]
 
-e|preferredName e|Preferred name e|Preferred name e|Name e|description e|Unit
-e|symbol  e|Short name e|Short name e|Symbol e|displayName e|Symbol
-e|code  e|IRDI e|Code e|Common Code e|unitId e|PID
-e|definition  e|Definition e|Definition e|Description e|--- e|Definition
-e|preferredNameQuantity  e|Quantity e|Quantity e|Quantity e|QuantityType e|Quantity
-e|quantityID  e|QuantityID e|QuantityID |--- |--- e|PID (of Quantity)
-e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM"
+e|ConceptDescription/id e|IRDI (or IRIfootnote:prefix[see Table <<Prefixes>>]) e|Code |_prefix_footnote:prefix[see Table <<Prefixes>>] + _Common Code_  |_prefix_footnote:prefix[] + _unitId_ e|PIDfootnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere] e| Unit element URN
+
+e|preferredName e|Preferred name e|Preferred name e|Name e|description e|Unit e|preferredName
+e|symbol  e|Short name e|Short name e|Symbol e|displayName e|Symbol e|symbol
+e|code  e|IRDI e|Code e|Common Code e|unitId e|PID e|commonCode
+e|definition  e|Definition e|Definition e|Description e|--- e|Definition e|description
+e|preferredNameQuantity  e|Quantity e|Quantity e|Quantity e|QuantityType e|Quantity e|quantityKind/preferredName
+e|quantityID  e|QuantityID e|QuantityID |--- |--- e|PID (of Quantity) e|quantityKind
+e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM" e| "UNECE"
 
 |===
 
@@ -251,8 +252,9 @@ e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM"
 |Dictionary |_prefix_ |Example for _id_
 |UNECE e|"uncefact:UNECERec20Code/" e|"uncefact:UNECERec20Code/MMT"
 
-|OPC UA |"http://www.opcfoundation.org/UA/units/" e|"http://www.opcfoundation.org/UA/units/5131860" footnote:["MMT" -> 0x004E4E54 -> 5131860]
-|ECLASS | "https://api.eclass-cdp.com/" e| "https://api.eclass-cdp.com/0173-1-05-AAA480-003"
+|OPC UA |\http://www.opcfoundation.org/UA/units/ e|\http://www.opcfoundation.org/UA/units/5131860 footnote:["MMT" -> 0x004E4E54 -> 5131860]
+|ECLASS | \https://api.eclass-cdp.com/ e| \https://api.eclass-cdp.com/0173-1-05-AAA480-003
+|SAMM | urn:samm:org.eclipse.esmf.samm:unit:<version>#footnote:[Note: the namespace is versioned, not the single UoMs as for example in ECLASS ] | urn:samm:org.eclipse.esmf.samm:unit:2.2.0#degreeCelsiusfootnote:[see https://eclipse-esmf.github.io/samm-specification/snapshot/appendix/unitcatalog.html, prefix "unit:" maps to urn:samm:org.eclipse.esmf.samm:unit:2.2.0#]
 |===
 
 
