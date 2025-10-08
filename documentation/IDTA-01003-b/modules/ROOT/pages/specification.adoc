@@ -74,7 +74,7 @@ Note: To stay compliant with IEC 61360 each string shall have a length of maximu
 ====
 Note: It is advised to keep the length of the name limited to 35 characters.
 ====
-Example: “millimetre”
+Example: "millimetre"
 
 |xref:ShortLangStringSet[ShortLangStringSet] |1
 
@@ -96,7 +96,7 @@ Code of the unit defined by the classification system
 ====
 Note: This is relevant if the classification system references the units differently from the unique unitID.  This can e.g. be UNECE common codes or proprietary keys.
 ====
-Example: “MMT”
+Example: "MMT"
 
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
 
@@ -106,7 +106,7 @@ Example: “MMT”
 a|
 Definition in different languages
 
-Example: “0,001 fold of the SI base unit metre”
+Example: "0,001 fold of the SI base unit metre"
 
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[LangStringSet] |0..1
 
@@ -124,7 +124,7 @@ Note: To stay compliant with IEC 61360 each string shall have a length of maximu
 Note: It is advised to keep the length of the name limited to 35 characters.
 ====
 
-Example: “distance”
+Example: "distance"
 
 |xref:ShortLangStringSet[ShortLangStringSet] |0..1
 
@@ -147,7 +147,7 @@ Example:  0173-1#Z4-BAJ199#002
 a|
 Name of the classification system used for the definition of units and quantities
 
-Example: “ECLASS”
+Example: "ECLASS"
 
 
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
