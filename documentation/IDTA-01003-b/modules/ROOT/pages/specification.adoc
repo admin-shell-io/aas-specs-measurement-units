@@ -16,7 +16,7 @@ include::includes/constraints.adoc[]
 
 === Data Specification Unit of Measure Template Specification 
 
-This specification is only valid in combination with IDTA-01001-3-1 and and IDTA-01003-a-3-1.
+This specification is only valid in combination with IDTA-01001-3-1 and IDTA-01003-a-3-1.
 
 {empty}
 
@@ -222,7 +222,9 @@ This is why the different formats are described in IDTA-01001.
 
 === General
 
-As mentioned in the introduction of this document several dictionaries for units of measures exist. Typically, these dictionaries have their own philosophy of modelling the different aspects of units. This section provides a guide on how to map the most common dictionary entries to the Data Specification template.
+As mentioned in the introduction of this document several dictionaries for units of measures exist. 
+Typically, these dictionaries have their own philosophy of modelling the different aspects of units. 
+This section provides a guide on how to map the most common dictionary entries to the Data Specification template.
 
 === Mapping
 
