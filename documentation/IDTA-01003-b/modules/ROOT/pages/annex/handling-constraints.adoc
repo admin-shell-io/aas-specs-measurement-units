@@ -16,7 +16,7 @@ Plattform Industrie 4.0; Anna Salari, Publik. Agentur für Kommunikation GmbH, d
 
 Constraints are prefixed with *AASc-3b-* followed by a three-digit number.
 The "c" in "AASc-" was motivated by "Concept Description".
-The numbering of constraints is unique within namespace AASc-3a; a number of a constraint that was removed will not be used again.
+The numbering of constraints is unique within namespace AASc-3b; a number of a constraint that was removed will not be used again.
 
 If a constraint is mentioning the ID of the Template, then the same constraints shall also be valid for deprecated data specification template IDs.
 
