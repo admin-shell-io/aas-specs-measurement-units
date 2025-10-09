@@ -254,9 +254,9 @@ e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM" e| "UNECE"
 |Dictionary |_prefix_ |Example for _id_
 |UNECE e|"uncefact:UNECERec20Code/" e|"uncefact:UNECERec20Code/MMT"
 
-|OPC UA |\http://www.opcfoundation.org/UA/units/ e|\http://www.opcfoundation.org/UA/units/5131860 footnote:["MMT" -> 0x004E4E54 -> 5131860]
+|OPC UA |\http://www.opcfoundation.org/UA/units/ e|\http://www.opcfoundation.org/UA/units/5131860footnote:["MMT" -> 0x004E4E54 -> 5131860]
 |ECLASS | \https://api.eclass-cdp.com/ e| \https://api.eclass-cdp.com/0173-1-05-AAA480-003
-|SAMM | urn:samm:org.eclipse.esmf.samm:unit:<version>#footnote:[Note: the namespace is versioned, not the single UoMs as for example in ECLASS ] | urn:samm:org.eclipse.esmf.samm:unit:2.2.0#degreeCelsiusfootnote:[see https://eclipse-esmf.github.io/samm-specification/snapshot/appendix/unitcatalog.html, prefix "unit:" maps to urn:samm:org.eclipse.esmf.samm:unit:2.2.0#]
+|SAMM | urn:samm:org.eclipse.esmf.samm:unit:<version>#footnote:[Note: the namespace is versioned, not the single UoMs as for example in ECLASS ] | urn:samm:org.eclipse.esmf.samm:unit:2.2.0#degreeCelsiusfootnote:[see https://eclipse-esmf.github.io/samm-specification/snapshot/appendix/unitcatalog.html, prefix "unit:" maps to urn:samm:org.eclipse.esmf.samm:unit:2.2.0# etc.]
 |===
 
 
