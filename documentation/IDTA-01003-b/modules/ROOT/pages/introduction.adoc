@@ -213,7 +213,7 @@ As the _id_ of the Concept Description must be unique for different contents, th
 map property_1 {
     idShort => heightOfControllerA
     description => "Height of Controller"
-    semanticId => type=ExternalReference, value=0173-1#02-BAA020#011
+    semanticId => type=ExternalReference, value=0173-1#02-BAA020#012
     valueType => xs:real
     value => 54,4
 }
