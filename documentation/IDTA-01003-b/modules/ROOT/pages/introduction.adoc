@@ -195,7 +195,7 @@ This subsection states some general remarks for working with Units of Measure th
 
 - If the ConceptDescription provided for quantitative or measurable property is incomplete and neither a _unit_ nor a _unitId_ is supplied in _DataSpecification61360_ (IDTA-01003-a), the primary unit of the property definition according to the semantic repository is used.  The semantic repository is identified indirectly via the ConceptDescription/id.
 
-- If the the applied semantic repository does not define a primary or default unit for quantitative or measurable property, then a ConceptDescription shall be defined that definex either _unit_ or _unitId_.
+- If the the applied semantic repository does not define a primary or default unit for a quantitative or measurable property, then a ConceptDescription shall be supplied that defines either _unit_ or _unitId_.
 
 - If a _unit_ or _unitId_ is supplied that differs from the original property's dictionary entry, then the entry in the Data Specification takes precendence.
 
