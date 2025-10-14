@@ -239,11 +239,11 @@ e|ConceptDescription/id e|IRDI (or IRIfootnote:prefix[see Table <<Prefixes>>]) e
 
 e|preferredName e|Preferred name e|Preferred name e|Name e|description e|Unit e|preferredName
 e|symbol  e|Short name e|Short name e|Symbol e|displayName e|Symbol e|symbol
-e|code  e|IRDI e|Code e|Common Code e|unitId e|PID e|commonCode
+e|code  e|IRDI e|Code e|Common Code e|unitId e|PID e|commonCodefootnote:[In SAMM only UNECE units have a commonCode value.]
 e|definition  e|Definition e|Definition e|Description e|--- e|Definition e|description
 e|preferredNameQuantity  e|Quantity e|Quantity e|Quantity e|QuantityType e|Quantity e|quantityKind/preferredName
 e|quantityID  e|QuantityID e|QuantityID |--- |--- e|PID (of Quantity) e|quantityKind
-e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM" e| "UNECE"
+e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM" e| "UNECE" for units having a code, "SAMM" for units defined as part of SAMMfootnote:[see https://github.com/eclipse-esmf/esmf-semantic-aspect-meta-model/blob/main/esmf-samm-build-plugin/src/main/resources/custom-units.ttl]
 
 |===
 
