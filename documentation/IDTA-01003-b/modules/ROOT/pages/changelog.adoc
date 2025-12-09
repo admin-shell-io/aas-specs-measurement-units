@@ -32,4 +32,4 @@ If there are no changes the corresponding tables are omitted.
 
 == Changes V3.0
 
-Major changes:
+This is the first version of the document. It has been numbered as version 3.0 to be consistent with Part 1 of the specification series. 

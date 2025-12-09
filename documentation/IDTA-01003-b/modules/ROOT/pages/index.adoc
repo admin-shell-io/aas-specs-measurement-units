@@ -1,4 +1,4 @@
-= Part 3a: Data Specification Template IEC 61360 (IDTA-01003-a)
+= Part 3b: Data Specification - Measurement Units (IDTA-01003-b)
 
 *Specification of the Asset Administration Shell*
 

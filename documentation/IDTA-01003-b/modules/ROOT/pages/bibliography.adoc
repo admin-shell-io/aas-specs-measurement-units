@@ -10,6 +10,10 @@ SPDX-License-Identifier: CC-BY-4.0
 [bibliography]
 = Bibliography
 
+[#bib1]
+[1] IDTA-01002 "Specification of the Asset Administration Shell Part 1 – Metamodel".
+See xref:bibliography.adoc#bib22[[22\]].
+
 [#bib12]
 [12] "OMG Unified Modelling Language (OMG UML)".
 Version 2.5.1. December 2017. 
