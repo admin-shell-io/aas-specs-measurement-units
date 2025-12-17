@@ -191,19 +191,21 @@ map DataSpecificationUnitOfMeasure {
 
 This subsection states some general remarks for working with Units of Measure that have proven to be helpful when kept in mind.
 
-- If neither a _unit_ or _unitId_ is supplied in _DataSpecification61360_, the default unit of the property definition according to the semantic repository (e.g. ECLASS) is used. 
+- if only a _semanticId_ is provided for a quantitative or measurable property but no ConceptDescription with _DataSpecification61360_ then the primary unit is used.
 
-- If the the applied semantic repository does not define a default unit, either _unit_ or _unitId_ must be provided.
+- If the ConceptDescription provided for quantitative or measurable property is incomplete and neither a _unit_ nor a _unitId_ is supplied in _DataSpecification61360_ (IDTA-01003-a), the primary unit of the property definition according to the semantic repository is used.  The semantic repository is identified indirectly via the ConceptDescription/id.
+
+- If the the applied semantic repository does not define a primary or default unit for a quantitative or measurable property, then a ConceptDescription shall be supplied that defines either _unit_ or _unitId_.
 
 - If a _unit_ or _unitId_ is supplied that differs from the original property's dictionary entry, then the entry in the Data Specification takes precendence.
 
-- Using a unit that differs from the default unit of the property's dictionary entry does not break the semantic of that property.
-The whole purpose of a stringent semantic UoM dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. // todo: critical statement as differing units easily break system interoperability if not handled properly.
+- Using a unit that differs from the primary or default unit of the property's dictionary entry does not break the semantic of that property.
+The whole purpose of a stringent semantic UoM dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. 
 
 - If needed, it is possible to model multiple properties that have the identical dictionary entry with different UoM.
 However, because Concept Descriptions are unique (identifiable) this modelling task is quite complicated and therefore not recommended.
 Figure <<image-ex-different-UoM>> illustrates that the change of the unit does not break the semantic of the property, but it does break the addressability of the Concept Description.
-As the _id_ of the Concept Description must be unique for different contents, the original semanticID can only be transported using the _isCaseOf_ attribute.
+As the _id_ of the Concept Description must be unique for different contents, the original _semanticId_ can only be transported using the _isCaseOf_ attribute.
 
 .Illustration of modelling two properties with identical semantics with the exception of the UoM
 [[image-ex-different-UoM]]
@@ -211,7 +213,7 @@ As the _id_ of the Concept Description must be unique for different contents, th
 map property_1 {
     idShort => heightOfControllerA
     description => "Height of Controller"
-    semanticId => type=ExternalReference, value=0173-1#02-BAA020#011
+    semanticId => type=ExternalReference, value=0173-1#02-BAA020#012
     valueType => xs:real
     value => 54,4
 }
@@ -224,7 +226,7 @@ map property_2 {
     value => 17,2
 }
 
-map  DataSpecificationIec61360_1 {
+map  ConceptDescription_1_with_DataSpecificationIec61360 {
   id => 0173-1#02-BAA020#011
   idShort => height
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
@@ -236,7 +238,7 @@ map  DataSpecificationIec61360_1 {
   symbol => h
 }
 
-map  DataSpecificationIec61360_2 {
+map  ConceptDescription_2_with_DataSpecificationIec61360 {
   id => myHeight
   idShort => height
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
@@ -248,7 +250,7 @@ map  DataSpecificationIec61360_2 {
   symbol => h
 }
 
-map DataSpecificationUnitOfMeasure_1 {
+map ConceptDescription_1_with_DataSpecificationUnitOfMeasure {
   id => 0173-1#05-AAA480#003
   idShort => millimeter
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
@@ -261,7 +263,7 @@ map DataSpecificationUnitOfMeasure_1 {
   classificationSystem => "ECLASS"
 }
 
-map DataSpecificationUnitOfMeasure_2 {
+map ConceptDescription_2_with_DataSpecificationUnitOfMeasure {
   id => 0173-1#05-AAA008#003
   idShort => millimeter
   displayName =>
@@ -277,9 +279,9 @@ map DataSpecificationUnitOfMeasure_2 {
   classificationSystem => "ECLASS"
 }
 
-property_1/semanticId -> DataSpecificationIec61360_1/id
-property_2/semanticId -> DataSpecificationIec61360_2/id
-DataSpecificationIec61360_1/unitId -> DataSpecificationUnitOfMeasure_1/id
-DataSpecificationIec61360_2/unitId -> DataSpecificationUnitOfMeasure_2/id
+property_1/semanticId -> ConceptDescription_1_with_DataSpecificationIec61360/id
+property_2/semanticId -> ConceptDescription_2_with_DataSpecificationIec61360/id
+DataSpecificationIec61360_1/unitId -> ConceptDescription_1_with_DataSpecificationUnitOfMeasure/id
+DataSpecificationIec61360_2/unitId -> ConceptDescription_2_with_DataSpecificationUnitOfMeasure/id
 
 @enduml

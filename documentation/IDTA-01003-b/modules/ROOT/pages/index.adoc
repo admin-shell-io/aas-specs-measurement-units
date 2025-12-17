@@ -1,4 +1,6 @@
-= Part 3b: Data Specification - Measurement Units (IDTA-01003-b)
+
+= Part 3a: Data Specification Template Measurement Units (IDTA-01003-b)
+
 
 *Specification of the Asset Administration Shell*
 
