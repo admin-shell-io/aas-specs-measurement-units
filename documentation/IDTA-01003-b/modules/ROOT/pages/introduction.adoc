@@ -145,6 +145,7 @@ When using the Data Specification Unit of Measure the Reference _DataSpecificati
 This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>
 
 .Exemplary usage of Data Specification Unit of Measure
+//UML broken
 [[image-ex-dataspecification-UoM]]
 @startuml
 map Property {
