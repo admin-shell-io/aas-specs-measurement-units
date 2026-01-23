@@ -209,6 +209,7 @@ As the _id_ of the Concept Description must be unique for different contents, th
 
 .Illustration of modelling two properties with identical semantics with the exception of the UoM
 [[image-ex-different-UoM]]
+//UML broken
 @startuml
 map property_1 {
     idShort => heightOfControllerA
