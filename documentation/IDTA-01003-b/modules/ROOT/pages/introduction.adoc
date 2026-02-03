@@ -36,26 +36,26 @@ Instead, it is an own series of documents, each featuring a specific use case th
 [#general]
 == General
 
-The data specification template specified in this document allows to use Units of Measure (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO 80000.
+The data specification template specified in this document allows to use Units of Measurement (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO 80000.
 
-Different use cases for modelling Units of Measures have to be distinguished.
+Different use cases for modelling Units of Measurements have to be distinguished.
 These use cases build up on one another:
 
 1.	Stating that a value has a specific UoM
 2.	Stating that a value has a specific UoM and providing information for interpreting that UoM
-3.	Stating that a value has a user-defined UoM and providing a complete definition
+3.	Stating that a value has a user-defined UoM and providing a complete definition of that unit
 
-Use Case 1 can be addressed using Part 3a: Data Specification - IEC61360 (IDTA-01003-a).
+Use Case 1 can be addressed using Part 3a: Data Specification - IEC61360 (IDTA-01003-a) xref:bibliography.adoc#bib14[[22\]].
 This part provides the two attributes that allow to state a UoM for SubmodelElements with a numerical value, i.e. _Property_ and _Range_: _DataSpecificationIec61360/unitId_ and _DataSpecificationIec61360/unit_.
-The Data Specification Units of Measure is not needed for this use case.
+The Data Specification Units of Measurement is not needed for this use case.
 Use Case 2 is the topic of the current version of this document.
-In addition to Use Case 1, the aim is to provide a minimal set of additional attributes to describe a Unit of Measure and reference to external dictionaries for further information.
+In addition to Use Case 1, the aim is to provide a minimal set of additional attributes to describe a Unit of Measurement and reference to external dictionaries for further information.
 Use Case 3 is currently out of scope but might be addressed in future versions of this document.
 
 [#related-standards]
 == Related Standards
 
-A unit of measure defines the magnitude of a quantity, e.g. length is a quantity and metre is a unit of that quantity with a defined magnitude.
+A unit of measurement defines the magnitude of a quantity, e.g. length is a quantity and metre is a unit of that quantity with a defined magnitude.
 Multiple data dictionaries that define units and quantities exist with varying size and scope, e.g. ECLASS, IEC CDD or UNECE Recommendation 20.
 The lists of units ranges from basic SI units over vertical specific units to non-physical units such as “piece”.
 The attributes for describing UoM defined in this document have been chosen to be as generic as possible, to allow the usage of any of these dictionaries.
@@ -68,14 +68,17 @@ To assure interoperability when using units these dictionaries relate physical u
 (However, this is not yet available for all physical units).
 
 * UNECE Rec. 20 focuses on providing three character alphabetic and alphanumeric codes for representing units of measurement used in international trade.footnote:[https://unece.org/trade/uncefact/cl-recommendations],footnote:[https://service.unece.org/trade/uncefact/vocabulary/rec20/]
-
-* The OPC Foundation does not define a unit dictionary, but provides means to model units and quantities.footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3],footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6]
+It is widely used, but in some apsects outdated and inconsistent.
+UNECE Rec. 21 does not list units for continuous quantities, but rather discrete units used in logistics such as _package_, _pallet_ or _item_. 
 
 * The Bureau International des Poids et Mesures (BIPM) is the international organization through which Member States work together on matters related to metrology.
-As the home of the International System of Units (SI) it also lists a set of SI-related units and quantities as part of the SI digital frameweor.footnote:[https://si-digital-framework.org].
+As the home of the International System of Units (SI) it also lists a set of SI-related units and quantities as part of the SI digital framework.footnote:[https://si-digital-framework.org].
+This dictionary is still work inprogress.
 
-* The Semantic Aspect Meta Model (SAMM) provides a catalog of units based on UNCE Rec. 20footnote:[https://eclipse-esmf.github.io/samm-specification/snapshot/units.html] in machine readable form and with unique identifiers.
-SAMM additionally provides the means to define new units of measure.
+* While not being a data dictionary themselves, some existing meta models also provide templates to model units. 
+OPC UA is maintained by the OPC Foundation does not define a unit dictionary, but provides generic means to model units and quantities.footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3],footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6].
+The Semantic Aspect Meta Model (SAMM) provides a catalog of units based on UNCE Rec. 20footnote:[https://eclipse-esmf.github.io/samm-specification/snapshot/units.html] in machine readable form and with unique identifiers.
+SAMM additionally provides the means to define new units of measurement.
 
 [#predefined-data-specification-templates]
 == Predefined Data Specification Templates 
@@ -88,11 +91,11 @@ For example, templates for concept descriptions differ from templates for operat
 More than one data specification template can be defined and used for an element instance.
 Which templates are used for an element instance is defined via _HasDataSpecification_.
 
-This specification template _DataSpecificationUnitOfMeasure_ supports the modeling of units of measure for submodel elements with values.
+This specification template _DataSpecificationUnitOfMeasurement_ supports the modeling of units of measurement for submodel elements with values.
 
 <<image-rel-metamodel-UoM>> gives an overview of the data specification template and how it is used in combination with the information model as defined in Part 1 of the document series, namely  _DataSpecification_, _DataSpecificationContent,_ and _ConceptDescription_.
 
-.Overview Relationship Metamodel Part 1 & Data Specification Unit of Measure
+.Overview Relationship Metamodel Part 1 & Data Specification Unit of Measurement
 [[image-rel-metamodel-UoM]]
 @startuml
 skinparam packageStyle rectangle
@@ -107,14 +110,15 @@ package "Data Specification Templates - Part 1"  {
     abstract class DataSpecificationContent <<abstract>> {}
 }
 
-class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
+class DataSpecificationUnitOfMeasurement<DataSpecificationContent> <<Template>> {
   +preferredName: ShortLangStringSet
   +symbol: string
-  +code: string[0..1]
+  +specificUnitID: string[0..1]
   +definition: LangStringSet[0..1]
   +preferredNameQuantity: ShortLangStringSet[0..1]
   +quantityID: Identifier[0..1]
   +classificationSystem: string[0..1]
+  +classificationSystemVersion: string[0..1]
 }
 
 package "Concept Descriptions - Part 1"  {
@@ -123,8 +127,8 @@ package "Concept Descriptions - Part 1"  {
     }
 }
 
-DataSpecificationContent <|- DataSpecificationUnitOfMeasure
-ConceptDescription <.. DataSpecificationUnitOfMeasure: may be used as\nData Specification
+DataSpecificationContent <|- DataSpecificationUnitOfMeasurement
+ConceptDescription <.. DataSpecificationUnitOfMeasurement: may be used as\nData Specification
 DataSpecification ..> DataSpecificationContent
 @enduml
 
@@ -134,18 +138,18 @@ Which data specification is made available is defined via _HasDataSpecification/
 
 The legend for understanding the UML diagrams and the table specification of the classes is explained in xref:annex/uml-templates.adoc[] and xref:annex/uml.adoc[].
 
-=== Using Data Specification Unit of Measure
+=== Using Data Specification Unit of Measurement
 
-Using the template _DataSpecificationIec61360_ as specified in IDTA-01003-a is a prerequisite for using the template _DataSpecificationUnitOfMeasure_ specified in this document.
+Using the template _DataSpecificationIec61360_ as specified in IDTA-01003-a is a prerequisite for using the template _DataSpecificationUnitOfMeasurement_ specified in this document.
 _DataSpecificationIec61360_ provides the attributes _DataSpecificationIec61360/unitId_ and _DataSpecificationIec61360/unit_.
 Thereby, _unit_ is a string with the textual representation of the unit of the value of the SubmodelElement.
 _unitId_ is a Reference with a matching unique ID of that unit.
 
-When using the Data Specification Unit of Measure the Reference _DataSpecificationIec61360/unitId_ does not reference an external dictionary, but instead references _DataSpecificationUnitOfMeasure/id_.
+When using the Data Specification Unit of Measurement the Reference _DataSpecificationIec61360/unitId_ does not reference an external dictionary, but instead references _DataSpecificationUnitOfMeasurement/id_.
 This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>
 
-.Exemplary usage of Data Specification Unit of Measure
-//UML broken
+.Exemplary usage of Data Specification Unit of Measurement
+
 [[image-ex-dataspecification-UoM]]
 @startuml
 map Property {
@@ -167,13 +171,13 @@ map  DataSpecificationIec61360 {
   unitId => type=ExternalReference, value=0173-1#05-AAA480#003
   symbol => h
   dataType => REAL_MEASURE
-  definition => "with objects with preferred position of use, the dimension which is generally measured oriented to gravity and generally measured perpendicular to the supporting surface"
+  definition => "with objects with preferred position of use, the dimension which is generally \nnew measured oriented to gravity and generally measured perpendicular to \nnew the supporting surface"
 }
 
-map DataSpecificationUnitOfMeasure {
+map DataSpecificationUnitOfMeasurement {
   id => 0173-1#05-AAA480#003
   idShort => millimeter
-  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   preferredName => "millimeter"
   symbol => "mm"
   code => 0173-1#05-AAA480#003
@@ -183,14 +187,14 @@ map DataSpecificationUnitOfMeasure {
   classificationSystem => "ECLASS"
 }
 
- Property/semanticId --> DataSpecificationIec61360/id
- DataSpecificationIec61360/unitId --> DataSpecificationUnitOfMeasure/id
+ Property::semanticId --> DataSpecificationIec61360::id
+ DataSpecificationIec61360::unitId --> DataSpecificationUnitOfMeasurement::id
 
 @enduml
 
-=== General Remarks for Working with Units of Measure
+=== General Remarks for Working with Units of Measurement
 
-This subsection states some general remarks for working with Units of Measure that have proven to be helpful when kept in mind.
+This subsection states some general remarks for working with Units of Measurement that have proven to be helpful when kept in mind.
 
 - if only a _semanticId_ is provided for a quantitative or measurable property but no ConceptDescription with _DataSpecification61360_ then the primary unit is used.
 
@@ -208,7 +212,7 @@ However, because Concept Descriptions are unique (identifiable) this modelling t
 Figure <<image-ex-different-UoM>> illustrates that the change of the unit does not break the semantic of the property, but it does break the addressability of the Concept Description.
 As the _id_ of the Concept Description must be unique for different contents, the original _semanticId_ can only be transported using the _isCaseOf_ attribute.
 
-.Illustration of modelling two properties with identical semantics with the exception of the UoM
+.Illustration of modelling two properties with identical semantics, but different units
 [[image-ex-different-UoM]]
 //UML broken
 @startuml
@@ -252,10 +256,10 @@ map  ConceptDescription_2_with_DataSpecificationIec61360 {
   symbol => h
 }
 
-map ConceptDescription_1_with_DataSpecificationUnitOfMeasure {
+map ConceptDescription_1_with_DataSpecificationUnitOfMeasurement {
   id => 0173-1#05-AAA480#003
   idShort => millimeter
-  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   preferredName => "millimeter"
   symbol => "mm"
   code => 0173-1#05-AAA480#003
@@ -265,12 +269,12 @@ map ConceptDescription_1_with_DataSpecificationUnitOfMeasure {
   classificationSystem => "ECLASS"
 }
 
-map ConceptDescription_2_with_DataSpecificationUnitOfMeasure {
+map ConceptDescription_2_with_DataSpecificationUnitOfMeasurement {
   id => 0173-1#05-AAA008#003
   idShort => millimeter
   displayName =>
   description =>
-  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3
+  dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   isCaseOf =>
   preferredName => "centimeter"
   symbol => "cm"
@@ -281,9 +285,9 @@ map ConceptDescription_2_with_DataSpecificationUnitOfMeasure {
   classificationSystem => "ECLASS"
 }
 
-property_1/semanticId -> ConceptDescription_1_with_DataSpecificationIec61360/id
-property_2/semanticId -> ConceptDescription_2_with_DataSpecificationIec61360/id
-DataSpecificationIec61360_1/unitId -> ConceptDescription_1_with_DataSpecificationUnitOfMeasure/id
-DataSpecificationIec61360_2/unitId -> ConceptDescription_2_with_DataSpecificationUnitOfMeasure/id
+property_1::semanticId --> ConceptDescription_1_with_DataSpecificationIec61360::id
+property_2::semanticId --> ConceptDescription_2_with_DataSpecificationIec61360::id
+ConceptDescription_1_with_DataSpecificationIec61360::unitId --> ConceptDescription_1_with_DataSpecificationUnitOfMeasurement::id
+ConceptDescription_2_with_DataSpecificationIec61360::unitId --> ConceptDescription_2_with_DataSpecificationUnitOfMeasurement::id
 
 @enduml

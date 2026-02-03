@@ -14,7 +14,7 @@ include::includes/constraints.adoc[]
 
 == Predefined Template for UoM for submodel elements with values (normative)
 
-=== Data Specification Unit of Measure Template Specification 
+=== Data Specification Unit of Measurement Template Specification 
 
 This specification is only valid in combination with IDTA-01001-3-1 and IDTA-01003-a-3-1.
 
@@ -22,13 +22,13 @@ This specification is only valid in combination with IDTA-01001-3-1 and IDTA-010
 
 [width="100%",cols="20%,20%,20%,40%"]
 |===
-h|*Template:* 3+|Unit of Measure
+h|*Template:* 3+|Unit of Measurement
 h|*administration:* |version: 3 |revision: 0 |creator: IDTA
 
-h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3`  
+h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3`  
 
-h|*dataSpecificationContent:* 3+|DataSpecificationUnitOfMeasure   
-h|*Description (EN):* 3+a|Data specification template for concept descriptions for Units of Measure.
+h|*dataSpecificationContent:* 3+|DataSpecificationUnitOfMeasurement   
+h|*Description (EN):* 3+a|Data specification template for concept descriptions for Units of Measurement.
 |===
 
 The ID of the data specification template was derived conformant to the grammar for semantic IDs for data specifications as defined in Part 1 of the document series, IDTA-01001, with the exception that the minor version was excluded because this ID is also part of the instances of Asset Administration Shells: 
@@ -36,9 +36,9 @@ This ID is used in _hasDataSpecification/dataSpecification_.
 
 This namespace has the qualifier "UoM:". 
 
-.Metamodel of Data Specification Unit of Measure
+.Metamodel of Data Specification Unit of Measurement
 @startuml
-class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
+class DataSpecificationUnitOfMeasurement<DataSpecificationContent> <<Template>> {
   +preferredName: ShortLangStringSet
   +symbol: string
   +code: string[0..1]
@@ -53,17 +53,17 @@ class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
 
 [width="100%",cols="19%,47%,27%,7%"]
 |===
-h|*Class:* 3+e|DataSpecificationUnitOfMeasure  \<<Template>>
-h|*Explanation:* 3+a|Content of data specification template for concept descriptions for Units of Measure
+h|*Class:* 3+e|DataSpecificationUnitOfMeasurement  \<<Template>>
+h|*Explanation:* 3+a|Content of data specification template for concept descriptions for Units of Measurement
 h|*Inherits from:* 3+|DataSpecificationContent
 
-h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure`  
+h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement`  
 
 .2+h|*Attribute:* 3+h| ID
 h|Explanation h| Type h| Card.
 
 // preferredName
-.2+e|[[data-specification-content-preferred-name]]preferredName 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/preferredName`
+.2+e|[[data-specification-content-preferred-name]]preferredName 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/preferredName`
 
 a|
 Preferred name of the unit in different languages
@@ -79,7 +79,7 @@ Example: "millimetre"
 |xref:ShortLangStringSet[ShortLangStringSet] |1
 
 // symbol
-.2+e|[[data-specification-content-symbol]]symbol 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/symbol`
+.2+e|[[data-specification-content-symbol]]symbol 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/symbol`
 
 a|
 Symbol of the unit
@@ -89,7 +89,7 @@ Example: “mm”
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |1
 
 // code
-.2+e|[[data-specification-content-code]]code 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/code`
+.2+e|[[data-specification-content-code]]code 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/code`
 
 a|
 Code of the unit defined by the classification system
@@ -101,7 +101,7 @@ Example: "MMT"
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
 
 // definition
-.2+e|[[data-specification-content-definition]]definition 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/definition`
+.2+e|[[data-specification-content-definition]]definition 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/definition`
 
 a|
 Definition in different languages
@@ -111,7 +111,7 @@ Example: "0,001 fold of the SI base unit metre"
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[LangStringSet] |0..1
 
 // preferredNameQuantity
-.2+e|[[data-specification-content-preferredNameQuantity]]preferredNameQuantity 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/preferredNameQuantity`
+.2+e|[[data-specification-content-preferredNameQuantity]]preferredNameQuantity 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/preferredNameQuantity`
 
 a|
 Preferred name of the quantity in different languages.
@@ -129,7 +129,7 @@ Example: "distance"
 |xref:ShortLangStringSet[ShortLangStringSet] |0..1
 
 // quantityId
-.2+e|[[data-specification-content-quantityId]]quantityId 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/quantityId`
+.2+e|[[data-specification-content-quantityId]]quantityId 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/quantityId`
 
 a|
 Unique ID of the quantity.
@@ -142,7 +142,7 @@ Example:  0173-1#Z4-BAJ199#002
 |link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[Identifier] |0..1
 
 // ClassificationSystem
-.2+e|[[data-specification-content-classificationSystem]]classificationSystem 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/classificationSystem`
+.2+e|[[data-specification-content-classificationSystem]]classificationSystem 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3/0/DataSpecificationUnitOfMeasurement/classificationSystem`
 
 a|
 Name of the classification system used for the definition of units and quantities
@@ -222,7 +222,7 @@ This is why the different formats are described in IDTA-01001.
 
 === General
 
-As mentioned in the introduction of this document several dictionaries for units of measures exist. 
+As mentioned in the introduction of this document several dictionaries for units of measurements exist. 
 Typically, these dictionaries have their own philosophy of modelling the different aspects of units. 
 This section provides a guide on how to map the most common dictionary entries to the Data Specification template.
 

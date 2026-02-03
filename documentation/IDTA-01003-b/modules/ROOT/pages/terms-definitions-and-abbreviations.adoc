@@ -157,7 +157,7 @@ _[SOURCE: IEC 63278-1:2023]_
 |RFC |Request for Comment
 |SI  | Système international d'unités
 |UML |Unified Modelling Language
-|UoM  | Unit of Measure
+|UoM  | Unit of Measurement
 |URI |Uniform Resource Identifier
 |URL |Uniform Resource Locator
 |URN |Uniform Resource Name

@@ -55,17 +55,16 @@ xref:introduction.adoc#general[General] explains the purpose of the data specifi
 xref:introduction.adoc#predefined-data-specification-templates[Predefined Data Specification Templates] shows how the data specification template is related to Part 1 and its elements.
 
 xref:specification.adoc[Specification (normative)] is the main normative part of the document.
-It specifies the data specification templates supporting IEC 61360.
+It specifies the data specification template for Units of Measurements.
 
 xref:specification.adoc#primitive-and-simple-data-types-normative[Primitive and Simple Data Types (normative)] specifies the data types used in the data specification.
 
 xref:specification.adoc#mappings-to-data-formats-to-share-i40-compliant-information-normative[Mappings to Data Formats to Share I4.0-Compliant Information (normative)] provides information on the exchange of information compliant to this specification in existing data formats like XML, AutomationML, OPC UA information models, JSON or RDF.
 
-xref:specification.adoc#mappings-from-common-dictionaries[Mappings from Common dictionaries] explains how to map the attributes found in exemplary dictionaries to the data elements defined in this document.
-
 Finally, xref:summary-and-outlook.adoc[] summarizes the content and gives an outlook on future work.
 
-The Annex contains additional background information on the Asset Administration Shell (xref:annex/background.adoc[Background Information)]).
+The Annex contains an extensive list of modelling examples for the most common dictionaries for UoM (xref:annex/examples.adoc[Examplary Mapping of Units of Measurement Based on Different Data Dictionaries]).
+It further contains additional background information on the Asset Administration Shell (xref:annex/background.adoc[Background Information)]).
 It also provides information about UML (xref:annex/uml.adoc[Legend for UML Modelling]) and the tables used to specify UML classes as used in this specification (xref:annex/uml-templates.adoc[Templates for UML Tables]). xref:annex/backus-naur-form.adoc[Backus-Naur-Form] introduces the Backus-Naur-Form used in the document series.
 
 Metamodel changes compared to previous versions are described in xref:changelog.adoc[Change Notes].
