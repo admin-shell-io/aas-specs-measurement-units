@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-4.0
 ////
 
 [appendix]
-= Examplary Mapping of Units of Measurement Based on Different Data Dictionaries
+= Examplary Mapping of Units of Measurement Based on Different Data Dictionaries 
 
 This section provides a number of examples to illustrate how to model units of measurement using the given data specification template.
 
@@ -28,11 +28,14 @@ The following modelling rules have been applied to the examples and are highly r
 * The attributes for an UoM should be consistent, i.e. they should all come from the same source, i.e. dictionary.
 It is counterproductive to mix sources, e.g. by providing an UNECE REC 20 ID, but using the definition from ECLASS.
 In case of discrepencies between the dictionaries the receiver of the model cannot resolve these conflicts and does not know which source has precedence.
-* The source that was actually used and veryfied for the units should be used as a modelling basis. 
+* For the same reason the _classificationSystemVersion_ should be consistent throughout an application. 
+The units should not be mixed from different dictionary versions. 
+* The source that was actually used and verified for the units should be used as a modelling basis. 
 E.g., if the source for the unit definition is a SAMM model then this model should be used consistently to fill the attributes.
 Even though the units in SAMM are based on UNECE REC 20, the UNECE dictionary should only be referenced if the modeller used this as the original source.   
 It is good scientific practice to only cite the sources that were actually used and not the sources cited by sources.
-Sometimes a UoM is applicable for multiple quantities as denoted by the dictionaries. However, when used for quantifying a properties value, the appropriate quantity has to be selected. 
+* Sometimes a UoM is applicable for multiple quantities as denoted by the dictionaries. However, when used for quantifying a properties value, the appropriate quantity has to be selected. 
+
 
 The tables below are read as follows:
 
@@ -45,23 +48,26 @@ The tables below are read as follows:
 
 === ECLASS
 
-The modelling of UoM in ECLASS Basic and Advanced is similiar, but not identical. 
+The modelling of UoM in ECLASS Basic and Advanced is similiar, but not identical, even though they are based on the same dataset. 
 Some attributes are named differently and some attributes are only available in Basic or Advanced.
+
+Because the version of the property definition is coded into the IRDI/IRI of the property, it is not necessary to supply version information via the attribute _classificationSystemVersion_. 
+However, it can be helpful to supply the catalogue version, because it is not possible to directly infer the catalogue version from the property version.
 
 .Mapping recommendation and examples for ECLASS Basic
 [width="100%",cols="15%,5%,20%,20%,20%,20%"]
 |===
 |attribute (of data specification)              | card | mapping recommendation | Example 1 | Example 2 | Example 3
  
- |conceptDescription/id | 1    | _IRDI_ or _IRI_ of ECLASS unit |0173-1#05-AAA480#005|\https://api.eclass-cdp.com/0173-1-05-AAA480-003|0173-1#05-AAA793#002
+ |conceptDescription/id | 1    | _IrdiUN_ of ECLASS unit footnote:eclassIri[Alternatively ID can be provided as IRI starting with \https://api.eclass-cdp.com/ ] |0173-1#05-AAA480#005|\https://api.eclass-cdp.com/0173-1-05-AAA480-003|0173-1#05-AAA793#002
 
- |preferredName         | 1    | _Preferred name_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1
- |symbol                | 0..1 | _Short name_ of ECLASS unit|mm|mm|1/kg
- |specificUnitID        | 0..1 | _IRDI_, optionally if _IRI_ is provided as conceptDescription/id; otherwise omit||0173-1#05-AAA480#003|
+ |preferredName         | 1    | _PreferredName_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1
+ |symbol                | 1    | _ShortName_ of ECLASS unit|mm|mm|1/kg
+ |specificUnitID        | 0..1 | Optional. Recommended to supply _IRDI_ if _IRI_ is provided as _conceptDescription/id_||0173-1#05-AAA480#003|
  |definition            | 0..1 | _Definition_ of ECLASS unit|0,001-fold of the SI base unit metre|0,001-fold of the SI base unit metre|reciprocal of the SI base unit kilogram
 
- |preferredNameQuantity | 0..1 | _Quantity_ of ECLASS unit|distance|distance|reciprocal mass
- |quantityID            | 0..1 | _QuantityID_ of ECLASS unit| 0173-1#Z4-BAJ199#002|\https://api.eclass-cdp.com/0173-1-Z4-BAJ199-002|0173-1#Z4-AAB646#002
+ |preferredNameQuantity | 0..1 | _NameOfDedicatedQuantity_ of ECLASS unit|distance|distance|reciprocal mass
+ |quantityID            | 0..1 | -----footnote:[ECLASS basic does not provide the IDs of the quantities in its export] | | |
  |classificationSystem  | 0..1 | "ECLASS" |ECLASS|ECLASS|ECLASS
  |classificationSystemVersion | 0..1 |_ECLASS version_ |15.0|14.0|10.0
  
@@ -72,38 +78,47 @@ Some attributes are named differently and some attributes are only available in 
 |===
 |attribute (of data specification)              | card | mapping recommendation | Example 1 | Example 2 | Example 3
  
- |conceptDescription/id | 1    | _IRDI_ or _IRI_ of ECLASS unit |0173-1#05-AAA480#005|\https://api.eclass-cdp.com/0173-1-05-AAA480-003|0173-1#05-AAA793#002
+ |conceptDescription/id | 1    | _id_ of ECLASS unit footnote:eclassIri[] |0173-1#05-AAA480#005|\https://api.eclass-cdp.com/0173-1-05-AAA480-003|0173-1#05-AAA793#002
 
- |preferredName         | 1    | _Preferred name_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1
- |symbol                | 0..1 | _Short name_ of ECLASS unit|mm|mm|1/kg
- |specificUnitID        | 0..1 | _IRDI_, optionally if _IRI_ is provided as conceptDescription/id; otherwise omit||0173-1#05-AAA480#003|
- |definition            | 0..1 | _Definition_ of ECLASS unit|0,001-fold of the SI base unit metre|0,001-fold of the SI base unit metre|reciprocal of the SI base unit kilogram
+ |preferredName         | 1    | _preferred_name_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1
+ |symbol                | 1    | _short_name_ of ECLASS unit|mm|mm|1/kg
+ |specificUnitID        | 0..1 | Optional. Recommended to supply _IRDI_ if _IRI_ is provided as conceptDescription/id||0173-1#05-AAA480#003|
+ |definition            | 0..1 | _definition_ of ECLASS unit|0,001-fold of the SI base unit metre|0,001-fold of the SI base unit metre|reciprocal of the SI base unit kilogram
 
- |preferredNameQuantity | 0..1 | _Quantity_ of ECLASS unit|distance|distance|reciprocal mass
- |quantityID            | 0..1 | _QuantityID_ of ECLASS unit| 0173-1#Z4-BAJ199#002|\https://api.eclass-cdp.com/0173-1-Z4-BAJ199-002|0173-1#Z4-AAB646#002
+ |preferredNameQuantity | 0..1 | _QuantityReference/name_ of ECLASS unit|distance|distance|reciprocal mass
+ |quantityID            | 0..1 | _QuantityReference/url_ of ECLASS unit| 0173-1#Z4-BAJ199#002|\https://api.eclass-cdp.com/0173-1-Z4-BAJ199-002|0173-1#Z4-AAB646#002
  |classificationSystem  | 0..1 | "ECLASS" |ECLASS|ECLASS|ECLASS
  |classificationSystemVersion | 0..1 |_ECLASS version_ |15.0|14.0|10.0
  
 |===
 
+.Snapshot of UoM descriptions in ECLASS Basic v16.0 (CSV-Export). Copyright by ECLASS e.V.
+image::example_eclass_basic.jpg[align="center"]
+
+.Snapshot of UoM model in ECLASS Advanced v16.0 (XML-Export). Copyright by ECLASS e.V.
+image::example_eclass_advanced.jpg[align="center"]
+
 === IEC CDD
+
+IEC CDD and ECLASS can be mapped in a very similiar way.
+Because the IEC CDD has no version of the overall catalogue, the atribute _classificationSystemVersion_ should be omitted.
 
 .Mapping recommendation and examples for IEC CDD
 [width="100%",cols="15%,5%,20%,20%,20%,20%"]
 |===
 |attribute (of data specification)              | card | mapping recommendation | Example 1 | Example 2 | Example 3
  
- |conceptDescription/id | 1    | _IRDI_ of IEC CDD unit |0112/2///62720#UAA862#001|0112/2///62720#UAB246#001|0112/2///62720#UAA017#002
+ |conceptDescription/id | 1    | _IRDI_ of IEC CDD unit |0112/2///62720#UAA862#001|\https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAB246|0112/2///62720#UAA017#002
 
  |preferredName         | 1    | _Preferred name_ of IEC CDD unit|millimetre|tex|ohm
- |symbol                | 0..1 | _Short name_ of IEC CDD unit|mm|tex|Ω
- |specificUnitID        | 0..1 | -----|||
+ |symbol                | 1    | _Short name_ of IEC CDD unit|mm|tex|Ω
+ |specificUnitID        | 0..1 | Optional. Recommended to supply _IRDI_ if _IRI_ is provided as conceptDescription/id||0112/2///62720#UAB246#001|
  |definition            | 0..1 | _Definition_ of IEC CDD unit||unit for the indication of the linear mass of textile fibers and yarns|SI derived unit with special name, for which the following relation applies: 1 Ω = 1 C·A⁻¹ = 1 S⁻¹ = 1 m²·kg¹·s⁻³·A⁻²
 
  |preferredNameQuantity | 0..1 | _Preferred name_ of the units quantity footnote:iecQuant[The quantities are listed under "Applicable list of units"]|length|lineic mass|electric resistance
  |quantityID            | 0..1 | _IRDI_ of the units quantity footnote:iecQuant[]| 0112/2///62720#UAD072#001|0112/2///62720#UAD079#001|0112/2///62720#UAD045#001
  |classificationSystem  | 0..1 | "IEC CDD" |IEC CDD|IEC CDD|IEC CDD
- |classificationSystemVersion | 0..1 | ????? |||
+ |classificationSystemVersion | 0..1 | "-----" |||
  
 |===
 
@@ -128,7 +143,7 @@ The examples illustrate different ways this could be achieved without giving a r
  |conceptDescription/id | 1    | [no recommendation] |uncefact:UNECERec20Code/MMT|uncefact:rec20:kilocandela|\https://service.unece.org/trade/uncefact/vocabulary/rec20#page
 
  |preferredName         | 1    | _Name_ of UNECE unit|millimetre|kilocandela|page
- |symbol                | 0..1 | _Representation symbol_ of UNECE unit|mm|kcd|
+ |symbol                | 1    | _Representation symbol_ of UNECE unit|mm|kcd|
  |specificUnitID        | 0..1 | _Common code_ of UNECE unit|MMT|P33|ZP
  |definition            | 0..1 | _Description_ of UNECE unit||1000-fold of the SI base unit candela.|A unit of count defining the number of pages.
 
@@ -150,7 +165,7 @@ image::example_unece1.jpg[align="center"]
  |conceptDescription/id | 1    | [no recommendation] |uncefact:UNECERec21Code:8A|uncefact:rec21:piece|\https://service.unece.org/trade/uncefact/vocabulary/rec21/#Parcel
 
  |preferredName         | 1    | _Name_ of UNECE unit|Pallet, wooden|Piece|Parcel
- |symbol                | 0..1 | -----|||
+ |symbol                | 1    | _Name_ of UNECE unit|Pallet, wooden|Piece|Parcel
  |specificUnitID        | 0..1 | _Code_ of UNECE unit|8A|PP|PC
  |definition            | 0..1 | _Description_ of UNECE unit|A platform or open-ended box, made of wood, on which goods are retained for ease of mechanical handling during transport and storage.|A loose or unpacked article.|
 
@@ -162,7 +177,7 @@ image::example_unece1.jpg[align="center"]
 |===
 
 .View of exemplary UNECE REC 21 entries (Revision 12, Annexes V and VI). Copyright by United Nations Economic Commission for Europe
-image::example_UNECE1.jpg[align="center"]
+image::example_UNECE2.jpg[align="center"]
 
 === BIPM (Bureau International des Poids et Mesures) / SI Digital Framework
 
@@ -176,7 +191,7 @@ The BIPM focuses on the maintenance of the SI unit definitions, but also provide
  |conceptDescription/id | 1    | _PID_ of BIPM (compound) unit |\https://si-digital-framework.org/SI/units/ampere|\https://si-digital-framework.org/SI/units/dalton|\https://si-digital-framework.org/SI/units/millimetre
 
  |preferredName         | 1    | _Unit_ or _Compound unit_ of BIPM unit |ampere|dalton|mm
- |symbol                | 0..1 | _Symbol_ of BIPM unit|A|Da|mm
+ |symbol                | 1    | _Symbol_ of BIPM unit|A|Da|mm
  |specificUnitID        | 0..1 | -----|||
  |definition            | 0..1 | _Definition_ of BIPM unit||The ampere, symbol A, is the SI unit of electric current. It is defined by taking the fixed numerical value of the elementary charge, e, to be 1.602176634x10^-19 when expressed in the unit C, which is equal to As, where the second is defined in terms of delta_v_cs.|
 
@@ -188,10 +203,10 @@ The BIPM focuses on the maintenance of the SI unit definitions, but also provide
 |===
 
 .View of the SI digital framework entry for the UoM Ampere. Copyright by BIPM
-image::example_BIPM1.jpg[align="center"]
+image::example_BIPM1.jpg[align="center", width=600]
 
 .View of the SI digital framework entry for the compound unit millimeter. Copyright by BIPM
-image::example_BIPM2.jpg[align="center"]
+image::example_BIPM2.jpg[align="center", width=600]
 
 === Other meta models
 
@@ -203,7 +218,7 @@ image::example_BIPM2.jpg[align="center"]
  |conceptDescription/id | 1    | [no recommendation] |http://www.opcfoundation.org/UA/units/5131860|http://www.opcfoundation.org/OPC34100/5720146|http://example-company/myCompanionSpec/UAA862
 
  |preferredName         | 1    | _description_ |millimetre|watt hour|millimetre
- |symbol                | 0..1 | _displayName | mm|W·h|mm
+ |symbol                | 1    | _displayName | mm|W·h|mm
  |specificUnitID        | 0..1 | _UnitID_|5131860|5720146|UAA862
  |definition            | 0..1 | -----|||
 
@@ -216,21 +231,21 @@ image::example_BIPM2.jpg[align="center"]
 
 
 .Mapping recommendation and examples for SAMM
-[width="100%",cols="15%,5%,20%,30%,30%,"]
+[width="100%",cols="15%,5%,20%,30%,30%"]
 |===
 |attribute (of data specification) | card | mapping recommendation | Example 1 | Example 2
  
  |conceptDescription/id | 1    | _Unit element URN_ |urn:samm:org.eclipse.esmf.samm:unit:2.2.0#degreeCelsius|urn:samm:org.eclipse.esmf.samm:unit:2.2.0#percent
 
  |preferredName         | 1    | _Preferred name_ of unit|degreeCelsius|percent
- |symbol                | 0..1 | _symbol_ of unit|°C|%
+ |symbol                | 1    | _symbol_ of unit|°C|%
  |specificUnitID        | 0..1 | -----||
  |definition            | 0..1 | _description_||
 
  |preferredNameQuantity | 0..1 | _quantityKind/preferredName_ of unit |temperature|dimensionless
  |quantityID            | 0..1 | _quantityKind_ of unit | urn:samm:org.eclipse.esmf.samm:unit:2.2.0#temperature|urn:samm:org.eclipse.esmf.samm:unit:2.2.0#dimensionless
  |classificationSystem  | 0..1 | "SAMM" |SAMM|SAMM
- |classificationSystemVersion | 0..1 | ????? |2.2|2.2|
+ |classificationSystemVersion | 0..1 | Version |2.2|2.2|
  
 |===
 
@@ -247,21 +262,24 @@ I.e., if and only if the source for the unit definition is a SAMM model then thi
 
 === Examples of not recommended modelling approaches
 
+The following table lists some modelling mistakes that should be avoided.
+
 .Negative examples, i.e. discoraged moddeling approaches
-[width="100%",cols="15%,5%,20%,20%,20%,20%"]
+[width="100%",cols="30%,10%,30%,30%"]
 |===
-|attribute (of data specification)              | card | mapping recommendation | Example 1 | Example 2 | Example 3
+|attribute (of data specification)              | card | Example 1 | Example 2
  
- |conceptDescription/id | 1    | _IRDI_ of IEC CDD unit |0112/2///62720#UAA862#001|0112/2///62720#UAB246#001|0112/2///62720#UAA017#002
+ |conceptDescription/id | 1    | 0112/2///62720#UAA023#001| MMT
 
- |preferredName         | 1    | _Preferred name_ of IEC CDD unit|millimetre|tex|ohm
- |symbol                | 0..1 | _Short name_ of IEC CDD unit|mm|m⁻¹ kg|Ω
- |specificUnitID        | 0..1 | -----|||
- |definition            | 0..1 | _Definition_ of IEC CDD unit||unit for the indication of the linear mass of textile fibers and yarns|SI derived unit with special name, for which the following relation applies: 1 Ω = 1 C·A⁻¹ = 1 S⁻¹ = 1 m²·kg¹·s⁻³·A⁻²
+ |preferredName         | 1    | ångström                 |millimetre
+ |symbol                | 0    | Å                        |mm
+ |specificUnitID        | 0..1 | A11                      |MMT
+ |definition            | 0..1 | 0,000 000 000 1-fold of the SI base unit metre|
 
- |preferredNameQuantity | 0..1 | _Preferred name_ of the units quantity footnote:iecQuant[The quantities are listed under "Applicable list of units"]|length|lineic mass|electric resistance
- |quantityID            | 0..1 | _IRDI_ of the units quantity footnote:iecQuant[]| 0112/2///62720#UAD072#001|0112/2///62720#UAD079#001|0112/2///62720#UAD045#001
- |classificationSystem  | 0..1 | "IEC CDD" |IEC CDD|IEC CDD|IEC CDD
- |classificationSystemVersion | 0..1 | ????? |||
+ |preferredNameQuantity | 0..1 |                         |   
+ |quantityID            | 0..1 |                         |   
+ |classificationSystem  | 0..1 | UNECE                   |   
+ |classificationSystemVersion | 0..1 |                   |   
+ |explanation           |      | Not recommended, because information from multiple sources is mixed| "MMT" is not a unique ID and therefore not suitable as an identifier for conceptDescriptions. The omission of _classificationSystem_ makes it impossible to use the original UNECE catalogue.
  
 |===

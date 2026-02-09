@@ -111,14 +111,14 @@ package "Data Specification Templates - Part 1"  {
 }
 
 class DataSpecificationUnitOfMeasurement<DataSpecificationContent> <<Template>> {
-  +preferredName: ShortLangStringSet
-  +symbol: string
-  +specificUnitID: string[0..1]
-  +definition: LangStringSet[0..1]
-  +preferredNameQuantity: ShortLangStringSet[0..1]
-  +quantityID: Identifier[0..1]
-  +classificationSystem: string[0..1]
-  +classificationSystemVersion: string[0..1]
+  +preferredName: LangStringSetUoM
+  +symbol: StringUoM
+  +specificUnitID: StringUoM[0..1]
+  +definition: DefinitionTypeUoM[0..1]
+  +preferredNameQuantity: LangStringSetUoM[0..1]
+  +quantityID: IdentifierUoM[0..1]
+  +classificationSystem: StringUoM[0..1]
+  +classificationSystemVersion: StringUoM[0..1]
 }
 
 package "Concept Descriptions - Part 1"  {
@@ -153,7 +153,7 @@ This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>
 [[image-ex-dataspecification-UoM]]
 @startuml
 map Property {
-    idShort => heightOfController7411
+    idShort => "heightOfController7411"
     description => "Height of Controller"
     semanticId => type=ExternalReference, value=0173-1#02-BAA020#011
     valueType => xs:real
@@ -163,28 +163,29 @@ map Property {
 map  DataSpecificationIec61360 {
   administration =>
   id => 0173-1#02-BAA020#011
-  idShort => height
+  idShort => "height"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
-  preferredName  => height
-  shortName => height
+  preferredName  => "height"
+  shortName => "height"
   unit => mm
   unitId => type=ExternalReference, value=0173-1#05-AAA480#003
-  symbol => h
+  symbol => "h"
   dataType => REAL_MEASURE
   definition => "with objects with preferred position of use, the dimension which is generally \nnew measured oriented to gravity and generally measured perpendicular to \nnew the supporting surface"
 }
 
 map DataSpecificationUnitOfMeasurement {
-  id => 0173-1#05-AAA480#003
-  idShort => millimeter
+  id => "0173-1#05-AAA480#004"
+  idShort => "millimeter"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
-  preferredName => "millimeter"
+  preferredName => "millimeter"@en
   symbol => "mm"
-  code => 0173-1#05-AAA480#003
-  definition => "0,001 fold of the SI base unit metre"
-  preferredNameQuantity => "distance"
-  quantityID => 0173-1#Z4-BAJ199#003
+  specificUnitID => "0173-1#05-AAA480#003"
+  definition => "0,001 fold of the SI base unit metre"@en
+  preferredNameQuantity => "distance"@en
+  quantityID => "0173-1#Z4-BAJ199#003"
   classificationSystem => "ECLASS"
+  classificationSystemVersion -> "14.0"
 }
 
  Property::semanticId --> DataSpecificationIec61360::id
@@ -217,7 +218,7 @@ As the _id_ of the Concept Description must be unique for different contents, th
 //UML broken
 @startuml
 map property_1 {
-    idShort => heightOfControllerA
+    idShort => "heightOfControllerA"
     description => "Height of Controller"
     semanticId => type=ExternalReference, value=0173-1#02-BAA020#012
     valueType => xs:real
@@ -225,7 +226,7 @@ map property_1 {
 }
 
 map property_2 {
-    idShort => heightOfControllerB
+    idShort => "heightOfControllerB"
     description => "Height of Controller"
     semanticId => type=ConceptDescription, value=myHeight
     valueType => xs:real
@@ -234,11 +235,11 @@ map property_2 {
 
 map  ConceptDescription_1_with_DataSpecificationIec61360 {
   id => 0173-1#02-BAA020#011
-  idShort => height
+  idShort => "height"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
   isCaseOf => 0173-1#02-BAA020#011
-  preferredName  => height
-  shortName => height
+  preferredName  => "height"
+  shortName => "height"
   unit => mm
   unitId => type=ExternalReference, value=0173-1#05-AAA480#003
   symbol => h
@@ -246,42 +247,42 @@ map  ConceptDescription_1_with_DataSpecificationIec61360 {
 
 map  ConceptDescription_2_with_DataSpecificationIec61360 {
   id => myHeight
-  idShort => height
+  idShort => "height"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
   isCaseOf => 0173-1#02-BAA020#011
-  preferredName  => height
-  shortName => height
-  unit => cm
+  preferredName  => "height"
+  shortName => "height"
+  unit => "cm"
   unitId => type=ExternalReference, value=0173-1#05-AAA008#003
   symbol => h
 }
 
 map ConceptDescription_1_with_DataSpecificationUnitOfMeasurement {
   id => 0173-1#05-AAA480#003
-  idShort => millimeter
+  idShort => "millimeter"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   preferredName => "millimeter"
   symbol => "mm"
-  code => 0173-1#05-AAA480#003
+  specificUnitID => "0173-1#05-AAA480#003"
   definition => "0,001 fold of the SI base unit metre"
   preferredNameQuantity => "distance"
-  quantityID => 0173-1#Z4-BAJ199#003
+  quantityID => "0173-1#Z4-BAJ199#003"
   classificationSystem => "ECLASS"
 }
 
 map ConceptDescription_2_with_DataSpecificationUnitOfMeasurement {
-  id => 0173-1#05-AAA008#003
-  idShort => millimeter
+  id => "0173-1#05-AAA008#003"
+  idShort => "millimeter"
   displayName =>
   description =>
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   isCaseOf =>
   preferredName => "centimeter"
   symbol => "cm"
-  code => 0173-1#05-AAA008#003
+  specificUnitID => "0173-1#05-AAA008#003"
   definition => "0,01 fold of the SI base unit metre"
   preferredNameQuantity => "distance"
-  quantityID => 0173-1#Z4-BAJ199#003
+  quantityID => "0173-1#Z4-BAJ199#003"
   classificationSystem => "ECLASS"
 }
 
