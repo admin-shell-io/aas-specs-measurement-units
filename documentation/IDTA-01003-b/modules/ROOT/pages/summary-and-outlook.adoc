@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 = Summary and Outlook
 
-This document provides a metamodel for specifying a data specification template for defining concept descriptions for Units of Measure (UoM). The template includes a basic set of attributes to describe a Unit of Measure and reference to external dictionaries for further information.
+This document provides a metamodel for specifying a data specification template for defining concept descriptions for Units of Measurement (UoM). The template includes a basic set of attributes to describe a Unit of Measurement and reference to external dictionaries for further information.
 
 This document is part of the document series "Specification of the Asset Administration Shell".
 

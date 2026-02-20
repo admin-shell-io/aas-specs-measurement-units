@@ -14,21 +14,21 @@ include::includes/constraints.adoc[]
 
 == Predefined Template for UoM for submodel elements with values (normative)
 
-=== Data Specification Unit of Measure Template Specification 
+=== Data Specification Unit of Measurement Template Specification 
 
-This specification is only valid in combination with IDTA-01001-3-1 and IDTA-01003-a-3-1.
+This specification is only valid in combination with IDTA-01001-3 and IDTA-01003-a-3.
 
 {empty}
 
 [width="100%",cols="20%,20%,20%,40%"]
 |===
-h|*Template:* 3+|Unit of Measure
+h|*Template:* 3+|Unit of Measurement
 h|*administration:* |version: 3 |revision: 0 |creator: IDTA
 
-h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3`  
+h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3`  
 
-h|*dataSpecificationContent:* 3+|DataSpecificationUnitOfMeasure   
-h|*Description (EN):* 3+a|Data specification template for concept descriptions for Units of Measure.
+h|*dataSpecificationContent:* 3+|DataSpecificationUoM   
+h|*Description (EN):* 3+a|Data specification template for concept descriptions for Units of Measurement.
 |===
 
 The ID of the data specification template was derived conformant to the grammar for semantic IDs for data specifications as defined in Part 1 of the document series, IDTA-01001, with the exception that the minor version was excluded because this ID is also part of the instances of Asset Administration Shells: 
@@ -36,123 +36,144 @@ This ID is used in _hasDataSpecification/dataSpecification_.
 
 This namespace has the qualifier "UoM:". 
 
-.Metamodel of Data Specification Unit of Measure
+.Metamodel of Data Specification Unit of Measurement
 @startuml
-class DataSpecificationUnitOfMeasure<DataSpecificationContent> <<Template>> {
-  +preferredName: ShortLangStringSet
-  +symbol: string
-  +code: string[0..1]
-  +definition: LangStringSet[0..1]
-  +preferredNameQuantity: LangStringSet[0..1]
-  +quantityID: Identifier[0..1]
-  +classificationSystem: string[0..1]
+class DataSpecificationUoM<DataSpecificationContent> <<Template>> {
+  +preferredName: LangStringSetUoM
+  +symbol: StringUoM
+  +specificUnitID: StringUoM[0..1]
+  +definition: DefinitionTypeUoM[0..1]
+  +preferredNameQuantity: LangStringSetUoM[0..1]
+  +quantityID: IdentifierUoM[0..1]
+  +classificationSystem: StringUoM[0..1]
+  +classificationSystemVersion: StringUoM[0..1]
 }
 @enduml
+
+=== Identifikation of the Concept Description
+
+The identification of the Concept Description, _conceptDescription/id_, should be identical to the unique global identifier of the unit of measurement, if available. 
+If no unique global identifier is available, the _conceptDescription/id_ can be chosen arbitrarily.
+In this case the unit's identifier as defined by the classification system must be denoted in the attribute _xref:data-specification-content-specificunitid[specificUnitID]_ (see below). 
 
 === Data Specification Attributes
 
 [width="100%",cols="19%,47%,27%,7%"]
 |===
-h|*Class:* 3+e|DataSpecificationUnitOfMeasure  \<<Template>>
-h|*Explanation:* 3+a|Content of data specification template for concept descriptions for Units of Measure
+h|*Class:* 3+e|DataSpecificationUoM  \<<Template>>
+h|*Explanation:* 3+a|Content of data specification template for concept descriptions for Units of Measurement
 h|*Inherits from:* 3+|DataSpecificationContent
 
-h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure`  
+h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM`  
 
 .2+h|*Attribute:* 3+h| ID
 h|Explanation h| Type h| Card.
 
 // preferredName
-.2+e|[[data-specification-content-preferred-name]]preferredName 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/preferredName`
+.2+e|[[data-specification-content-preferred-name]]preferredName 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/preferredName`
 
 a|
-Preferred name of the unit in different languages
+Preferred name of the unit in different languages as defined by the classification system
 
-====
-Note: To stay compliant with IEC 61360 each string shall have a length of maximum 255 and minimum of 1 characters.
-====
-====
-Note: It is advised to keep the length of the name limited to 35 characters.
-====
 Example: "millimetre"
 
-|xref:ShortLangStringSet[ShortLangStringSet] |1
+|xref:LangStringSetUoM[LangStringSetUoM] |1
 
 // symbol
-.2+e|[[data-specification-content-symbol]]symbol 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/symbol`
+.2+e|[[data-specification-content-symbol]]symbol 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/symbol`
 
 a|
 Symbol of the unit
 
 Example: “mm”
 
-|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |1
+|xref:StringUoM[StringUoM] |1
 
-// code
-.2+e|[[data-specification-content-code]]code 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/code`
+// specificUnitID
+.2+e|[[data-specification-content-specificunitid]]specificUnitID 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/specificUnitID`
 
 a|
-Code of the unit defined by the classification system
+ID of the unit defined by the classification system
+
 ====
-Note: This is relevant if the classification system references the units differently from the unique unitID.  This can e.g. be UNECE common codes or proprietary keys.
+Note: This is relevant if the classification system references the units differently from the unique _conceptDescription/id_.  
+This can e.g. be UNECE common codes or proprietary keys.
 ====
 Example: "MMT"
 
-|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
+|xref:StringUoM[StringUoM] |0..1
 
 // definition
-.2+e|[[data-specification-content-definition]]definition 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/definition`
+.2+e|[[data-specification-content-definition]]definition 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/definition`
 
 a|
-Definition in different languages
+Definition of the unit in different languages
 
-Example: "0,001 fold of the SI base unit metre"
+Example: "0,001 fold of the SI base unit metre"@en
 
-|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[LangStringSet] |0..1
+|xref:DefinitionTypeUoM[DefinitionTypeUoM] |0..1
 
 // preferredNameQuantity
-.2+e|[[data-specification-content-preferredNameQuantity]]preferredNameQuantity 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/preferredNameQuantity`
+.2+e|[[data-specification-content-preferredNameQuantity]]preferredNameQuantity 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/preferredNameQuantity`
 
 a|
-Preferred name of the quantity in different languages.
+Preferred name of the unit's quantity in different languages as defined by the classification system.
 
-preferredNameQuantity and quantityID must be consistent if both attributes are set
-====
-Note: To stay compliant with IEC 61360 each string shall have a length of maximum 255 and minimum of 1 characters.
-====
-====
-Note: It is advised to keep the length of the name limited to 35 characters.
-====
+_preferredNameQuantity_ and _quantityID_ must be consistent if both attributes are set.
+
+If the classification system lists multiple quantities for the unit, exactly one of those quantities must be selected in accordance with the properties purpose.  
 
 Example: "distance"
 
-|xref:ShortLangStringSet[ShortLangStringSet] |0..1
+|xref:LangStringSetUoM[LangStringSetUoM] |0..1
 
 // quantityId
-.2+e|[[data-specification-content-quantityId]]quantityId 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/quantityId`
+.2+e|[[data-specification-content-quantityId]]quantityId 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/quantityId`
 
 a|
-Unique ID of the quantity.
+ID of the unit's quantity.
 
 preferredNameQuantity and quantityID must be consistent if both attributes are set
 
 Example:  0173-1#Z4-BAJ199#002
 
 
-|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[Identifier] |0..1
+|xref:IdentifierUoM[IdentifierUoM] |0..1
 
 // ClassificationSystem
-.2+e|[[data-specification-content-classificationSystem]]classificationSystem 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasure/3/0/DataSpecificationUnitOfMeasure/classificationSystem`
+.2+e|[[data-specification-content-classificationSystem]]classificationSystem 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/classificationSystem`
 
 a|
 Name of the classification system used for the definition of units and quantities
 
-Example: "ECLASS"
+====
+Note: The most prominent classification systems should be denoted as follows:
+"ECLASS", "IEC CDD", "UNECE Rec 20", "UNECE Rec 21", "BIPM", "OPC UA", "SAMM".
+
+This list is not exclusive.
+====
+
+Example: "ECLASS Basic"
 
 
-|link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#_predefined_simple_data_types[string] |0..1
+|xref:StringUoM[StringUoM] |0..1
+
+// ClassificationSystemVersion
+.2+e|[[data-specification-content-classificationSystemVersion]]classificationSystemVersion 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/classificationSystemVersion`
+
+a|
+Version of the classification system used for the definition of units and quantities
+
+The version shshould be denoted exactly as provided by the classification system.
+
+Example: "15.0"
+
+
+|xref:StringUoM[StringUoM] |0..1
 
 |===
+
+
 
 [#primitive-and-simple-data-types-normative]
 == Primitive and Simple Data Types (normative)
@@ -170,8 +191,17 @@ Primitive data types start with a capital letter.
 |===
 |*Primitive* |*Definition* |*Value Examples*
 
-|ShortLangStringSet a|
-_A link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1.1/spec-metamodel/datatypes.html#primitive-data-types[LangStringSet] with text values between 1 and 255 characters._
+|LangStringSet a|
+Array of elements of type _langString_
+
+====
+Note 1: _langString_ is a RDF data type
+====
+====
+Note 2: a _langString_ is a string value tagged with a language code
+====
+
+The realization of a _langString_ depends on the serialization rules for a technology as defined in Part 1 Metamodel, IDTA-01001. 
 
 a|
 In xml:
@@ -205,72 +235,53 @@ In JSON:
 ]
 ----
 
+|[[LangStringSetUoM]]LangStringSetUoM a|
+_LangStringSet_ 
+
+Each _langString_ within the array of _strings_ has a length of maximum 256 and a minimum of 1 characters.
+
+a|
+(see examples for _LangStringSet_)
+
+|[[DefinitionTypeUoM]]DefinitionTypeUoM
+|_LangStringSet_
+
+Each _langString_ within the array of _strings_ has a length of maximum 2048 and a minimum of 1 characters.
+|"0,001 fold of the SI base unit metre"@en
+
+(also see examples for _LangStringSet_)
+
+|[[StringUoM]]StringUoM
+|_string_
+
+A _string_ with a length of maximum 256 and a minimum of 1 characters.
+
+====
+Note: _string_ is a xsd data type
+====
+
+|"OPC UA"
+
+(also see examples for _LangStringSet_)
+
+|[[IdentifierUoM]]IdentifierUoM
+|_string_
+
+A _string_ with a length of maximum 2048 and a minimum of 1 characters.
+
+====
+Note: _string_ is a xsd data type
+====
+
+|"0173-1#02-BAA120#008"
+
+(also see examples for _LangStringSet_)
 
 |===
 
 [#mappings-to-data-formats-to-share-i40-compliant-information-normative]
 == Mappings to Data Formats to Share I4.0-Compliant Information (normative)
 
-=== General
-
 Part 1 of this document series (IDTA-01001) introduces different serialization formats: XML, JSON and RDF.
 Part 1 also introduces the implementation guide for embedded data specifications.
 This is why the different formats are described in IDTA-01001.
-
-[#mappings-from-common-dictionaries]
-== Mappings from Common Dictionaries (informative)
-
-=== General
-
-As mentioned in the introduction of this document several dictionaries for units of measures exist. 
-Typically, these dictionaries have their own philosophy of modelling the different aspects of units. 
-This section provides a guide on how to map the most common dictionary entries to the Data Specification template.
-
-=== Mapping
-
-The table below provides the information for mapping the entries of the most common dictionaries or data models for UoM to the Concept Description specified in this document. 
-
-.Mappings of data dictionaries
-[%header, width="100%",cols="1,1,1,1,1,1,1"]
-|===
-|AAS UoM |ECLASS |IEC CDD |UNECE Rec. 20 |OPC UA |BIPM | SAMMfootnote:[https://eclipse-esmf.github.io/samm-specification/snapshot/units.html]
-
-e|ConceptDescription/id e|IRDI (or IRIfootnote:prefix[see Table <<Prefixes>>]) e|Code |_prefix_footnote:prefix[see Table <<Prefixes>>] + _Common Code_  |_prefix_footnote:prefix[] + _unitId_ e|PIDfootnote:[Example for BIPM PID: https://si-digital-framework.org/SI/units/ampere] e| Unit element URN
-
-e|preferredName e|Preferred name e|Preferred name e|Name e|description e|Unit e|preferredName
-e|symbol  e|Short name e|Short name e|Symbol e|displayName e|Symbol e|symbol
-e|code  e|IRDI e|Code e|Common Code e|unitId e|PID e|commonCodefootnote:[In SAMM only UNECE units have a commonCode value.]
-e|definition  e|Definition e|Definition e|Description e|--- e|Definition e|description
-e|preferredNameQuantity  e|Quantity e|Quantity e|Quantity e|QuantityType e|Quantity e|quantityKind/preferredName
-e|quantityID  e|QuantityID e|QuantityID |--- |--- e|PID (of Quantity) e|quantityKind
-e|classificationSystem  |"ECLASS" |"IEC CDD" |"UNECE" e|--- |"BIPM" e| "UNECE" for units having a code, "SAMM" for units defined as part of SAMMfootnote:[see https://github.com/eclipse-esmf/esmf-semantic-aspect-meta-model/blob/main/esmf-samm-build-plugin/src/main/resources/custom-units.ttl]
-
-|===
-
-
-.Prefixes
-[%header, width="100%",cols="1,1,1"]
-|===
-|Dictionary |_prefix_ |Example for _id_
-|UNECE e|"uncefact:UNECERec20Code/" e|"uncefact:UNECERec20Code/MMT"
-
-|OPC UA |\http://www.opcfoundation.org/UA/units/ e|\http://www.opcfoundation.org/UA/units/5131860footnote:["MMT" -> 0x004E4E54 -> 5131860]
-|ECLASS | \https://api.eclass-cdp.com/ e| \https://api.eclass-cdp.com/0173-1-05-AAA480-003
-|SAMM | urn:samm:org.eclipse.esmf.samm:unit:<version>#footnote:[Note: the namespace is versioned, not the single UoMs as for example in ECLASS ] | urn:samm:org.eclipse.esmf.samm:unit:2.2.0#degreeCelsiusfootnote:[see https://eclipse-esmf.github.io/samm-specification/snapshot/appendix/unitcatalog.html, prefix "unit:" maps to urn:samm:org.eclipse.esmf.samm:unit:2.2.0# etc.]
-|===
-
-
-====
-Note: OPC UA uses the attribute _namespaceUri_ to denote the classification system. It is recommended to reference that classification system directly to avoid "double-mapping", if possible. E.g. the Table <<Prefixes>> illustrates how OPC UA maps the UNECE Common Code to an integer value (see explanation below). 
-
-In the OPC UA Specification Part 8, 5.6.3.4 a mapping from UNECE to the OPC UA information model is described as follows:
-
-- The _namespaceUri_ shall be http://www.opcfoundation.org/UA/units/un/cefact
-- The Common Code (represented as an alphanumeric variable length of up to 3 characters) has been converted into a 32 Bit Integer and is used for the _unitId_. The following pseudo code specifies the conversion algorithm:
-
-[source]
-Int32 unitId = 0; Int32 c; for (i=0; i<=3;i++) {
-c = CommonCode[i]; if (c == 0) break; // end of Common Code 
-unitId = unitId << 8; unitId = unitId | c;}
-
-====
