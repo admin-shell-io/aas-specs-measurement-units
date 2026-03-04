@@ -37,6 +37,9 @@ This ID is used in _hasDataSpecification/dataSpecification_.
 This namespace has the qualifier "UoM:". 
 
 .Metamodel of Data Specification Unit of Measurement
+[[image-4-metamodel-UoM]]
+[plantuml, image-4-metamodel-UoM, svg]
+....
 @startuml
 class DataSpecificationUoM<DataSpecificationContent> <<Template>> {
   +preferredName: LangStringSetUoM
@@ -49,6 +52,7 @@ class DataSpecificationUoM<DataSpecificationContent> <<Template>> {
   +classificationSystemVersion: StringUoM[0..1]
 }
 @enduml
+....
 
 === Identifikation of the Concept Description
 
