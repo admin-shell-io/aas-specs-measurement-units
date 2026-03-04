@@ -97,6 +97,8 @@ This specification template _DataSpecificationUnitOfMeasurement_ supports the mo
 
 .Overview Relationship Metamodel Part 1 & Data Specification Unit of Measurement
 [[image-rel-metamodel-UoM]]
+[plantuml, image-rel-metamodel-UoM, svg]
+....
 @startuml
 skinparam packageStyle rectangle
 
@@ -131,6 +133,7 @@ DataSpecificationContent <|- DataSpecificationUnitOfMeasurement
 ConceptDescription <.. DataSpecificationUnitOfMeasurement: may be used as\nData Specification
 DataSpecification ..> DataSpecificationContent
 @enduml
+....
 
 Part 1 does not prescribe how to define a concept description; it only supports the definition of concept descriptions.
 To do so, a data specification template needs to be assigned to the concept description.
@@ -151,6 +154,8 @@ This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>
 .Exemplary usage of Data Specification Unit of Measurement
 
 [[image-ex-dataspecification-UoM]]
+[plantuml, image-ex-dataspecification-UoM, svg]
+....
 @startuml
 map Property {
     idShort => "heightOfController7411"
@@ -192,6 +197,7 @@ map DataSpecificationUnitOfMeasurement {
  DataSpecificationIec61360::unitId --> DataSpecificationUnitOfMeasurement::id
 
 @enduml
+....
 
 === General Remarks for Working with Units of Measurement
 
@@ -215,7 +221,8 @@ As the _id_ of the Concept Description must be unique for different contents, th
 
 .Illustration of modelling two properties with identical semantics, but different units
 [[image-ex-different-UoM]]
-//UML broken
+[plantuml, image-ex-different-UoM, svg]
+....
 @startuml
 map property_1 {
     idShort => "heightOfControllerA"
@@ -273,10 +280,7 @@ map ConceptDescription_1_with_DataSpecificationUnitOfMeasurement {
 map ConceptDescription_2_with_DataSpecificationUnitOfMeasurement {
   id => "0173-1#05-AAA008#003"
   idShort => "millimeter"
-  displayName =>
-  description =>
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
-  isCaseOf =>
   preferredName => "centimeter"
   symbol => "cm"
   specificUnitID => "0173-1#05-AAA008#003"
@@ -292,3 +296,4 @@ ConceptDescription_1_with_DataSpecificationIec61360::unitId --> ConceptDescripti
 ConceptDescription_2_with_DataSpecificationIec61360::unitId --> ConceptDescription_2_with_DataSpecificationUnitOfMeasurement::id
 
 @enduml
+....
