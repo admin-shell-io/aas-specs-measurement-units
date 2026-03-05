@@ -190,7 +190,7 @@ map DataSpecificationUnitOfMeasurement {
   preferredNameQuantity => "distance"@en
   quantityID => "0173-1#Z4-BAJ199#003"
   classificationSystem => "ECLASS"
-  classificationSystemVersion -> "14.0"
+  classificationSystemVersion => "14.0"
 }
 
  Property::semanticId --> DataSpecificationIec61360::id
