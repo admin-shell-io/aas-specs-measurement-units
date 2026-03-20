@@ -256,7 +256,7 @@ Each _langString_ within the array of _strings_ has a length of maximum 2048 and
 (also see examples for _LangStringSet_)
 
 |[[StringUoM]]StringUoM
-|_string_
+a|_string_
 
 A _string_ with a length of maximum 256 and a minimum of 1 characters.
 
@@ -269,7 +269,7 @@ Note: _string_ is a xsd data type
 (also see examples for _LangStringSet_)
 
 |[[IdentifierUoM]]IdentifierUoM
-|_string_
+a|_string_
 
 A _string_ with a length of maximum 2048 and a minimum of 1 characters.
 
