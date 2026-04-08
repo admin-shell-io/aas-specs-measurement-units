@@ -17,7 +17,6 @@ SPDX-License-Identifier: CC-BY-4.0
 
 
 * xref:./annex/nav-annex.adoc[Annex]
-** xref:./annex/background.adoc[Background]
 ** xref:./annex/examples.adoc[Examples]
 ** xref:annex/backus-naur-form.adoc[Backus Naur Form]
 ** xref:annex/uml.adoc[UML]
