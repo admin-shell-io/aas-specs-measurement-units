@@ -20,7 +20,7 @@ This version 3.0 is the initial version of the document.
 This document uses the following parts of the “Specification of the Asset Administration Shell” series:
 
 * IDTA-01001 Part 1: Metamodel in version 3.2 xref:bibliography.adoc#bib22[[22\]]
-* IDTA-01001 Part 3a: Data Specification - IEC61360 in version 3.2 xref:bibliography.adoc#bib22[[22\]]
+* IDTA-01001 Part 3a: Data Specification - IEC61360 in version 3.1 xref:bibliography.adoc#bib22[[22\]]
 
 == Notice
 
