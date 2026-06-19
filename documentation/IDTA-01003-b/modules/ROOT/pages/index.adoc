@@ -10,7 +10,8 @@ This specification is part of the https://industrialdigitaltwin.org/en/content-h
 
 == Version
 
-This is the version 3.0 of the specification IDTA-01003-b. This version 3.0 is the initial version of the document.
+This is the version 3.0 of the specification IDTA-01003-b. 
+This version 3.0 is the initial version of the document.
 
 
 [#metamodel-versions]
@@ -19,7 +20,7 @@ This is the version 3.0 of the specification IDTA-01003-b. This version 3.0 is t
 This document uses the following parts of the “Specification of the Asset Administration Shell” series:
 
 * IDTA-01001 Part 1: Metamodel in version 3.2 xref:bibliography.adoc#bib22[[22\]]
-* IDTA-01001 Part 3a: Data Specification - IEC61360 xref:bibliography.adoc#bib22[[22\]]
+* IDTA-01001 Part 3a: Data Specification - IEC61360 in version 3.2 xref:bibliography.adoc#bib22[[22\]]
 
 == Notice
 
@@ -27,24 +28,24 @@ Copyright: Industrial Digital Twin Association e.V. (IDTA)
 
 IDTA Document Number: IDTA-01003-b-3-0
 
-DOI: **TO BE ADDED**
+DOI: https://doi.org/10.62628/idta.01003-b-3.0
 
 This work is licensed under a
 https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International License].
 
 SPDX-License-Identifier: CC-BY-4.0
 
-** DATE TO BE ADDED **
+June 2026
 
 == How to Get in Contact
 
 Contact: https://industrialdigitaltwin.org/en/contact[IDTA]
 
-Sources: https://github.com/admin-shell-io/aas-specs-iec61360[GitHub]
+Sources: https://github.com/admin-shell-io/[GitHub]
 
 Feedback:
 
-* https://github.com/admin-shell-io/aas-specs-iec61360/issues/new/choose[new issues, bugs]
+* https://github.com/admin-shell-io/aas-specs-measurement-units/issues/new/choose[new issues, bugs]
 
 * https://github.com/admin-shell-io/questions-and-answers[Questions and Answers]
 
