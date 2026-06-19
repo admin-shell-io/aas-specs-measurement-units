@@ -41,7 +41,7 @@ June 2026
 
 Contact: https://industrialdigitaltwin.org/en/contact[IDTA]
 
-Sources: https://github.com/admin-shell-io/[GitHub]
+Sources: https://github.com/admin-shell-io/aas-specs-measurement-units[GitHub]
 
 Feedback:
 
