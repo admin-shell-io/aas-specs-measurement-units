@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-4.0
 ==  Introduction
 
 This document is part of the series "Specification of the Asset Administration Shell" that provide the specifications for interoperable usage of the Asset Administration Shell.
-This part defines a technology-neutral specification of a data specification template, enabling the description of concept descriptions for units of measurement.
+This part defines a technology-neutral specification of a data specification template, enabling the description of concept descriptions for Units of Measurement.
 This UML metamodel serves as the basis for deriving several different formats for exchanging Asset Administration Shells, e.g. for XML, JSON, RDF as described in Part 1 of the document series (IDTA-01001).
 Data Specification Templates are implemented using the embedded data specification approach.
 This means, that the implementation is part of the overall schemas as defined for IDTA-01001.
@@ -38,7 +38,7 @@ Instead, it is an own series of documents, each featuring a specific use case th
 
 The data specification template specified in this document allows to use Units of Measurement (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO 80000.
 
-Different use cases for modelling Units of Measurements have to be distinguished.
+Different use cases for modelling Units of Measurement have to be distinguished.
 These use cases build up on one another:
 
 1.	Stating that a value has a specific UoM
@@ -67,7 +67,7 @@ ECLASS and IEC CDD are continuously working on harmonizing their dictionaries, i
 To assure interoperability when using units these dictionaries relate physical units to their SI unit and provide the respective conversion factors.
 (However, this is not yet available for all physical units).
 
-* UNECE Rec. 20 focuses on providing three character alphabetic and alphanumeric codes for representing units of measurement used in international trade.footnote:[https://unece.org/trade/uncefact/cl-recommendations],footnote:[https://service.unece.org/trade/uncefact/vocabulary/rec20/]
+* UNECE Rec. 20 focuses on providing three character alphabetic and alphanumeric codes for representing Units of Measurement used in international trade.footnote:[https://unece.org/trade/uncefact/cl-recommendations],footnote:[https://service.unece.org/trade/uncefact/vocabulary/rec20/]
 It is widely used, but in some apsects outdated and inconsistent.
 UNECE Rec. 21 does not list units for continuous quantities, but rather discrete units used in logistics such as _package_, _pallet_ or _item_. 
 
@@ -76,7 +76,7 @@ As the home of the International System of Units (SI) it also lists a set of SI-
 This dictionary is still work inprogress.
 
 * While not being a data dictionary themselves, some existing meta models also provide templates to model units. 
-OPC UA is maintained by the OPC Foundation does not define a unit dictionary, but provides generic means to model units and quantities.footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3],footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6].
+OPC UA is maintained by the OPC Foundation does not define a unit data dictionary, but provides generic means to model units and quantities.footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/5.6.3],footnote:[https://reference.opcfoundation.org/Core/Part8/v105/docs/6].
 The Semantic Aspect Meta Model (SAMM) provides a catalog of units based on UNCE Rec. 20footnote:[https://eclipse-esmf.github.io/samm-specification/snapshot/units.html] in machine readable form and with unique identifiers.
 SAMM additionally provides the means to define new units of measurement.
 
@@ -91,7 +91,7 @@ For example, templates for concept descriptions differ from templates for operat
 More than one data specification template can be defined and used for an element instance.
 Which templates are used for an element instance is defined via _HasDataSpecification_.
 
-This specification template _DataSpecificationUnitOfMeasurement_ supports the modeling of units of measurement for submodel elements with values.
+This specification template _DataSpecificationUnitOfMeasurement_ supports the modeling of Units of Measurement for submodel elements with values.
 
 <<image-rel-metamodel-UoM>> gives an overview of the data specification template and how it is used in combination with the information model as defined in Part 1 of the document series, namely  _DataSpecification_, _DataSpecificationContent,_ and _ConceptDescription_.
 
@@ -148,8 +148,15 @@ _DataSpecificationIec61360_ provides the attributes _DataSpecificationIec61360/u
 Thereby, _unit_ is a string with the textual representation of the unit of the value of the SubmodelElement.
 _unitId_ is a Reference with a matching unique ID of that unit.
 
-When using the Data Specification Unit of Measurement the Reference _DataSpecificationIec61360/unitId_ does not reference an external dictionary, but instead references _DataSpecificationUnitOfMeasurement/id_.
-This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>
+When using the Data Specification Unit of Measurement the Reference _DataSpecificationIec61360/unitId_ does not reference an external data dictionary, but instead references _DataSpecificationUnitOfMeasurement/id_.
+This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>. 
+
+In that example a property with the _idShort "heightOfController7411" has been modelled. This property has the _value of "54,4" and its semantics is detailled in a _DataSpecification based on the ECLASS data dictionary entry "0173-1#02-BAA020#011".
+The _semanticId references the _id of the appropriate _DataSpecification (_DataSpecificationIec61360). 
+Through the _DataSpecification it is defined that the property is a height and the property's _value is given in the _unit "mm". 
+Analogously to this procedure the semantics of this unit is described in a _DataSpecification (_DataSpecificationUnitOfMeasurement) based on the ECLASS data dictionary entry "0173-1#05-AAA480#003". 
+The _unitId references the _id of the appropriate _DataSpecification. 
+Here the clear definition of the unit and its quantity is given. 
 
 .Exemplary usage of Data Specification Unit of Measurement
 
@@ -180,7 +187,7 @@ map  DataSpecificationIec61360 {
 }
 
 map DataSpecificationUnitOfMeasurement {
-  id => "0173-1#05-AAA480#004"
+  id => "0173-1#05-AAA480#003"
   idShort => "millimeter"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   preferredName => "millimeter"@en
@@ -209,12 +216,12 @@ This subsection states some general remarks for working with Units of Measuremen
 
 - If the the applied semantic repository does not define a primary or default unit for a quantitative or measurable property, then a ConceptDescription shall be supplied that defines either _unit_ or _unitId_.
 
-- If a _unit_ or _unitId_ is supplied that differs from the original property's dictionary entry, then the entry in the Data Specification takes precendence.
+- If a _unit_ or _unitId_ is supplied that differs from the original property's data dictionary entry, then the entry in the Data Specification takes precendence.
 
-- Using a unit that differs from the primary or default unit of the property's dictionary entry does not break the semantic of that property.
-The whole purpose of a stringent semantic UoM dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. 
+- Using a unit that differs from the primary or default unit of the property's data dictionary entry does not break the semantic of that property.
+The whole purpose of a stringent semantic UoM data dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. 
 
-- If needed, it is possible to model multiple properties that have the identical dictionary entry with different UoM.
+- If needed, it is possible to model multiple properties that have the identical data dictionary entry with different UoM.
 However, because Concept Descriptions are unique (identifiable) this modelling task is quite complicated and therefore not recommended.
 Figure <<image-ex-different-UoM>> illustrates that the change of the unit does not break the semantic of the property, but it does break the addressability of the Concept Description.
 As the _id_ of the Concept Description must be unique for different contents, the original _semanticId_ can only be transported using the _isCaseOf_ attribute.

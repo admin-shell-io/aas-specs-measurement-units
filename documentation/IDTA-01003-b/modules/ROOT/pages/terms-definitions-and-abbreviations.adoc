@@ -141,7 +141,7 @@ _[SOURCE: IEC 63278-1:2023]_
 |AASX |Package file format for the Asset Administration Shell
 |API |Application Programming Interface
 |BLOB |Binary Large Object
-|CDD |Common Data Dictionary
+|CDD |IEC Common Data Dictionary
 |GUID |Globally unique identifier
 |ID |Identifier
 |IDTA |Industrial Digital Twin Association
@@ -157,7 +157,7 @@ _[SOURCE: IEC 63278-1:2023]_
 |RFC |Request for Comment
 |SI  | Système international d'unités
 |UML |Unified Modelling Language
-|UoM  | Unit of Measurement
+|UoM |Unit of Measurement
 |URI |Uniform Resource Identifier
 |URL |Uniform Resource Locator
 |URN |Uniform Resource Name

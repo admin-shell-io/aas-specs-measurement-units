@@ -17,9 +17,10 @@ Data specification templates aim to enable interoperability between the partners
 A template defines a set of attributes, with each attribute having a clear semantics.
 This set of attributes corresponds to a (sub-)schema.
 
-This document specifies data specification templates for modelling Units of Measure (UoM). 
+This document specifies data specification templates for modelling Units of Measurement (UoM). 
+In this document the UoM addresses the concepts of UNITS and their relationship to QUANTITIES.
 In this version of the document a very simple model is provided that can be extended in future versions. 
-The focus lies in providing a minimal set of attributes to describe a Unit of Measure and reference to external dictionaries for further information. 
+The focus lies in providing a minimal set of attributes to describe a Unit of Measurement and reference to external dictionaries for further information. 
 The definition of new UoM is currently not in scope.
 
 This document assumes familiarity with the concept and specification of the Asset Administration Shell as defined in Part 1.
@@ -35,6 +36,10 @@ The reading guide gives advice on which documents should be read depending on th
 [#IDTA-01001]
 [IDTA-01001] "Specification of the Asset Administration Shell.
 Part 1: Metamodel", IDTA-01001-3-1.
+Industrial Digital Twin Association.
+
+[#IDTA-01003-a]
+[IDTA-01003-a] "Specification of the Asset Administration Shell Part 3a: Data Specification - IEC 61360", IDTA-01003-a-3-1.
 Industrial Digital Twin Association.
 
 ====
@@ -55,7 +60,7 @@ xref:introduction.adoc#general[General] explains the purpose of the data specifi
 xref:introduction.adoc#predefined-data-specification-templates[Predefined Data Specification Templates] shows how the data specification template is related to Part 1 and its elements.
 
 xref:specification.adoc[Specification (normative)] is the main normative part of the document.
-It specifies the data specification template for Units of Measurements.
+It specifies the data specification template for Units of Measurement.
 
 xref:specification.adoc#primitive-and-simple-data-types-normative[Primitive and Simple Data Types (normative)] specifies the data types used in the data specification.
 
@@ -64,7 +69,6 @@ xref:specification.adoc#mappings-to-data-formats-to-share-i40-compliant-informat
 Finally, xref:summary-and-outlook.adoc[] summarizes the content and gives an outlook on future work.
 
 The Annex contains an extensive list of modelling examples for the most common dictionaries for UoM (xref:annex/examples.adoc[Examplary Mapping of Units of Measurement Based on Different Data Dictionaries]).
-It further contains additional background information on the Asset Administration Shell (xref:annex/background.adoc[Background Information)]).
 It also provides information about UML (xref:annex/uml.adoc[Legend for UML Modelling]) and the tables used to specify UML classes as used in this specification (xref:annex/uml-templates.adoc[Templates for UML Tables]). xref:annex/backus-naur-form.adoc[Backus-Naur-Form] introduces the Backus-Naur-Form used in the document series.
 
 Metamodel changes compared to previous versions are described in xref:changelog.adoc[Change Notes].

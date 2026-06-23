@@ -56,7 +56,7 @@ class DataSpecificationUoM<DataSpecificationContent> <<Template>> {
 
 === Identifikation of the Concept Description
 
-The identification of the Concept Description, _conceptDescription/id_, should be identical to the unique global identifier of the unit of measurement, if available. 
+The identification of the Concept Description, _conceptDescription/id_, should be identical to the unique global identifier of the Unit of Measurement, if available. 
 If no unique global identifier is available, the _conceptDescription/id_ can be chosen arbitrarily.
 In this case the unit's identifier as defined by the classification system must be denoted in the attribute _xref:data-specification-content-specificunitid[specificUnitID]_ (see below). 
 
