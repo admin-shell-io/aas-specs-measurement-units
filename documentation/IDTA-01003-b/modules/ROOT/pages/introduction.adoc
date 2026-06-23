@@ -36,21 +36,23 @@ Instead, it is an own series of documents, each featuring a specific use case th
 [#general]
 == General
 
-The data specification template specified in this document allows to use Units of Measurement (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO 80000.
+The data specification template specified in this document allows to use Units of Measurement (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO/IEC 80000.
 
 Different use cases for modelling Units of Measurement have to be distinguished.
 These use cases build up on one another:
 
-1.	Stating that a value has a specific UoM
-2.	Stating that a value has a specific UoM and providing information for interpreting that UoM
-3.	Stating that a value has a user-defined UoM and providing a complete definition of that unit
+* Use Case 1:	Stating that a value has a specific UoM
+* Use Case 2:	Stating that a value has a specific UoM and providing information for interpreting that UoM (focus of this document)
+* Use Case 3:	Stating that a value has a user-defined UoM and providing a complete definition of that unit
 
 Use Case 1 can be addressed using Part 3a: Data Specification - IEC61360 (IDTA-01003-a) xref:bibliography.adoc#bib14[[22\]].
 This part provides the two attributes that allow to state a UoM for SubmodelElements with a numerical value, i.e. _Property_ and _Range_: _DataSpecificationIec61360/unitId_ and _DataSpecificationIec61360/unit_.
 The Data Specification Units of Measurement is not needed for this use case.
+
 Use Case 2 is the topic of the current version of this document.
 In addition to Use Case 1, the aim is to provide a minimal set of additional attributes to describe a Unit of Measurement and reference to external dictionaries for further information.
-Use Case 3 is currently out of scope but might be addressed in future versions of this document.
+
+Use Case 3 is currently out of scope, but might be addressed in future versions of this document.
 
 [#related-standards]
 == Related Standards
@@ -62,7 +64,7 @@ The attributes for describing UoM defined in this document have been chosen to b
 
 In the following some examples for existing data dictionaries are given.
 
-* IEC maintains in IEC CDD an IEC TS 62720 compliant collection of mover than 1800 units.footnote:[https://cdd.iec.ch/]
+* The IEC maintains a collection of more than 2,100 units and 350 quantities in the IEC CDD, which complies with the IEC TS 62720 standard.footnote:[https://cdd.iec.ch/]
 ECLASS and IEC CDD are continuously working on harmonizing their dictionaries, including the UoM.
 To assure interoperability when using units these dictionaries relate physical units to their SI unit and provide the respective conversion factors.
 (However, this is not yet available for all physical units).
@@ -146,16 +148,16 @@ The legend for understanding the UML diagrams and the table specification of the
 Using the template _DataSpecificationIec61360_ as specified in IDTA-01003-a is a prerequisite for using the template _DataSpecificationUnitOfMeasurement_ specified in this document.
 _DataSpecificationIec61360_ provides the attributes _DataSpecificationIec61360/unitId_ and _DataSpecificationIec61360/unit_.
 Thereby, _unit_ is a string with the textual representation of the unit of the value of the SubmodelElement.
-_unitId_ is a Reference with a matching unique ID of that unit.
+_unitId_ is a reference with a matching unique ID of that unit.
 
 When using the Data Specification Unit of Measurement the Reference _DataSpecificationIec61360/unitId_ does not reference an external data dictionary, but instead references _DataSpecificationUnitOfMeasurement/id_.
 This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>. 
 
-In that example a property with the _idShort "heightOfController7411" has been modelled. This property has the _value of "54,4" and its semantics is detailled in a _DataSpecification based on the ECLASS data dictionary entry "0173-1#02-BAA020#011".
-The _semanticId references the _id of the appropriate _DataSpecification (_DataSpecificationIec61360). 
-Through the _DataSpecification it is defined that the property is a height and the property's _value is given in the _unit "mm". 
-Analogously to this procedure the semantics of this unit is described in a _DataSpecification (_DataSpecificationUnitOfMeasurement) based on the ECLASS data dictionary entry "0173-1#05-AAA480#003". 
-The _unitId references the _id of the appropriate _DataSpecification. 
+In that example a property with the _idShort_ "heightOfController7411" has been modelled. This property has the _value_ of "54,4" and its semantics is detailled in a _DataSpecification_ based on the ECLASS data dictionary entry "0173-1#02-BAA020#011".
+The _semanticId_ references the _id_ of the appropriate _DataSpecification_ (_DataSpecificationIec61360_). 
+Through the _DataSpecification_ it is defined that the property is a height and the property's _value_ is given in the _unit_ "mm". 
+Analogously to this procedure the semantics of this unit is described in a _DataSpecification_ (_DataSpecificationUnitOfMeasurement_) based on the ECLASS data dictionary entry "0173-1#05-AAA480#003". 
+The _unitId_ references the _id_ of the appropriate _DataSpecification_. 
 Here the clear definition of the unit and its quantity is given. 
 
 .Exemplary usage of Data Specification Unit of Measurement
