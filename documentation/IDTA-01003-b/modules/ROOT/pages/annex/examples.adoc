@@ -108,15 +108,16 @@ Because the IEC CDD has no version of the overall catalogue, the atribute _class
 |===
 |attribute (of data specification)              | card | mapping recommendation | Example 1 | Example 2 | Example 3
  
- |conceptDescription/id | 1    | _IRDI_ of IEC CDD unit |0112/2///62720#UAA862#001|\https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAB246|0112/2///62720#UAA017#002
+ |conceptDescription/id | 1    | _IRDI_ of IEC CDD unit |0112/2///62720#UAA862#001|https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/Units/0112-2---62720%23UAA296|0112/2///62720#UAA017#002
 
- |preferredName         | 1    | _Preferred name_ of IEC CDD unit|millimetre|tex|ohm
- |symbol                | 1    | _Short name_ of IEC CDD unit|mm|tex|Ω
+ |preferredName         | 1    | _Preferred name_ of IEC CDD unit|millimetre|Volt|ohm
+ |symbol                | 1    | _Short name_ of IEC CDD unit|mm|V|&#937;
  |specificUnitID        | 0..1 | Optional. Recommended to supply _IRDI_ if _IRI_ is provided as conceptDescription/id||0112/2///62720#UAB246#001|
- |definition            | 0..1 | _Definition_ of IEC CDD unit||unit for the indication of the linear mass of textile fibers and yarns|SI derived unit with special name, for which the following relation applies: 1 Ω = 1 C·A⁻¹ = 1 S⁻¹ = 1 m²·kg¹·s⁻³·A⁻²
+ |definition            | 0..1 | _Definition_ of IEC CDD unit||	
+SI derived unit with special name, defined as the potential difference between two points in an electric circuit when one joule of work is required to move one coulomb of charge, and for which the following relation applies: 1 V = 1 J/C (by Ohm' law: 1 V = 1 W/A)|SI derived unit with special name, for which the following relation applies: 1 &#937; = 1 C·A^-1^ = 1 S^-1^ = 1 m^2^·kg·s^-3^·A^-2^
 
- |preferredNameQuantity | 0..1 | _Preferred name_ of the units quantity footnote:iecQuant[The quantities are listed under "Applicable list of units"]|length|lineic mass|electric resistance
- |quantityID            | 0..1 | _IRDI_ of the units quantity footnote:iecQuant[]| 0112/2///62720#UAD072#001|0112/2///62720#UAD079#001|0112/2///62720#UAD045#001
+ |preferredNameQuantity | 0..1 | _Preferred name_ of the units quantity footnote:iecQuant[The quantities are listed under "Applicable list of units"]|length|electric potential difference|electric resistance
+ |quantityID            | 0..1 | _IRDI_ of the units quantity footnote:iecQuant[]| 0112/2///62720#UAD072#001|https://cdd.iec.ch/cdd/iec62720/iec62720.nsf/ListsOfUnitsAllVersions/0112-2---62720%23UAD237|0112/2///62720#UAD045#001
  |classificationSystem  | 0..1 | "IEC CDD" |IEC CDD|IEC CDD|IEC CDD
  |classificationSystemVersion | 0..1 | "-----" |||
  
@@ -193,7 +194,7 @@ The BIPM focuses on the maintenance of the SI unit definitions, but also provide
  |preferredName         | 1    | _Unit_ or _Compound unit_ of BIPM unit |ampere|dalton|mm
  |symbol                | 1    | _Symbol_ of BIPM unit|A|Da|mm
  |specificUnitID        | 0..1 | -----|||
- |definition            | 0..1 | _Definition_ of BIPM unit||The ampere, symbol A, is the SI unit of electric current. It is defined by taking the fixed numerical value of the elementary charge, e, to be 1.602176634x10^-19 when expressed in the unit C, which is equal to As, where the second is defined in terms of delta_v_cs.|
+ |definition            | 0..1 | _Definition_ of BIPM unit|The ampere, symbol A, is the SI unit of electric current. It is defined by taking the fixed numerical value of the elementary charge, e, to be 1.602176634x10^-19^ when expressed in the unit C, which is equal to As, where the second is defined in terms of delta_v_cs.||
 
  |preferredNameQuantity | 0..1 | _Quantity_ of the BIPM unit|electric current|mass|
  |quantityID            | 0..1 | _PID_ of the units quantity|\https://si-digital-framework.org/quantities/ELCU|\https://si-digital-framework.org/quantities/MASS|

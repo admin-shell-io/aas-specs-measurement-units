@@ -36,6 +36,15 @@ Instead, it is an own series of documents, each featuring a specific use case th
 [#general]
 == General
 
+Things are described by characteristics according to which things can be compared. 
+Characteristics that make things comparable by their magnitude are called quantity, e.g. a length or a temperature. 
+A unit defines the magnitude of a quantity, e.g. metre is a unit of the quantity length with a defined magnitude.
+Referencing a unit allows to state the magnitude of a charasteristic in comparison to that unit, e.g. "The cube has the length of 3 metres.".
+Not all quantities can be compared even if they share the same unit.
+E.g. torque and energy both have the physical unit newton-meters (Nm), but they belong to different quantities that cannot be compared.
+For that reason, in definitions units and quantities should always be given as a pair.
+Countable quantities are a special kind of quantity whose magnitude is given in discrete values, e.g. "number of pages of the document". [100, 101, 102]
+
 The data specification template specified in this document allows to use Units of Measurement (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO/IEC 80000.
 
 Different use cases for modelling Units of Measurement have to be distinguished.
@@ -57,7 +66,6 @@ Use Case 3 is currently out of scope, but might be addressed in future versions 
 [#related-standards]
 == Related Standards
 
-A unit of measurement defines the magnitude of a quantity, e.g. length is a quantity and metre is a unit of that quantity with a defined magnitude.
 Multiple data dictionaries that define units and quantities exist with varying size and scope, e.g. ECLASS, IEC CDD or UNECE Recommendation 20.
 The lists of units ranges from basic SI units over vertical specific units to non-physical units such as “piece”.
 The attributes for describing UoM defined in this document have been chosen to be as generic as possible, to allow the usage of any of these dictionaries.
