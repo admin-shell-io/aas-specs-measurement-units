@@ -53,6 +53,7 @@ Some attributes are named differently and some attributes are only available in 
 
 Because the version of the property definition is coded into the IRDI/IRI of the property, it is not necessary to supply version information via the attribute _classificationSystemVersion_. 
 However, it can be helpful to supply the catalogue version anyway, because it is not possible to directly infer the catalogue version from the property version.
+Snapshots of ECLASS models are depicted in Figures <<example_eclass_basic>> and <<example_eclass_advanced>>.
 
 .Mapping recommendation and examples for ECLASS Basic
 [width="100%",cols="15%,5%,20%,20%,20%,20%"]
@@ -61,7 +62,7 @@ However, it can be helpful to supply the catalogue version anyway, because it is
  
  |conceptDescription/id | 1    | _IrdiUN_ of ECLASS unit footnote:eclassIri[Alternatively ID can be provided as IRI starting with \https://api.eclass-cdp.com/ ] |0173-1#05-AAA480#005|\https://api.eclass-cdp.com/0173-1-05-AAA480-003|0173-1#05-AAA793#002
 
- |preferredName         | 1    | _PreferredName_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1
+ |preferredName         | 1    | _PreferredName_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1^
  |symbol                | 1    | _ShortName_ of ECLASS unit|mm|mm|1/kg
  |specificUnitID        | 0..1 | Optional. Recommended to supply _IRDI_ if _IRI_ is provided as _conceptDescription/id_||0173-1#05-AAA480#003|
  |definition            | 0..1 | _Definition_ of ECLASS unit|0,001-fold of the SI base unit metre|0,001-fold of the SI base unit metre|reciprocal of the SI base unit kilogram
@@ -80,7 +81,7 @@ However, it can be helpful to supply the catalogue version anyway, because it is
  
  |conceptDescription/id | 1    | _id_ of ECLASS unit footnote:eclassIri[] |0173-1#05-AAA480#005|\https://api.eclass-cdp.com/0173-1-05-AAA480-003|0173-1#05-AAA793#002
 
- |preferredName         | 1    | _preferred_name_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1
+ |preferredName         | 1    | _preferred_name_ of ECLASS unit|millimetre|millimetre|Kilogramm^-1^
  |symbol                | 1    | _short_name_ of ECLASS unit|mm|mm|1/kg
  |specificUnitID        | 0..1 | Optional. Recommended to supply _IRDI_ if _IRI_ is provided as conceptDescription/id||0173-1#05-AAA480#003|
  |definition            | 0..1 | _definition_ of ECLASS unit|0,001-fold of the SI base unit metre|0,001-fold of the SI base unit metre|reciprocal of the SI base unit kilogram
@@ -93,15 +94,18 @@ However, it can be helpful to supply the catalogue version anyway, because it is
 |===
 
 .Snapshot of UoM descriptions in ECLASS Basic v16.0 (CSV-Export). Copyright by ECLASS e.V.
+[[example_eclass_basic]]
 image::example_eclass_basic.jpg[align="center"]
 
 .Snapshot of UoM model in ECLASS Advanced v16.0 (XML-Export). Copyright by ECLASS e.V.
+[[example_eclass_advanced]]
 image::example_eclass_advanced.jpg[align="center"]
 
 === IEC CDD
 
 IEC CDD and ECLASS can be mapped in a very similiar way.
 Because the IEC CDD has no version of the overall catalogue, the atribute _classificationSystemVersion_ should be omitted.
+Snapshots of IEC CDD models are depicted in Figures <<example_ieccdd1>> and <<example_ieccdd2>>.
 
 .Mapping recommendation and examples for IEC CDD
 [width="100%",cols="15%,5%,20%,20%,20%,20%"]
@@ -124,9 +128,11 @@ SI derived unit with special name, defined as the potential difference between t
 |===
 
 .View of the IEC CDD entry for the UoM tex. Copyright by the International Electronical Commision (IEC)
+[[example_ieccdd1]]
 image::example_ieccdd1.jpg[align="center"]
 
 .View of the IEC CDD entry for the quantity "lineic mass". Copyright by the International Electronical Commision (IEC)
+[[example_ieccdd2]]
 image::example_ieccdd2.jpg[align="center"]
 
 === UNECE
@@ -135,6 +141,7 @@ In UNECE REC 20 and 21 the UoM are identified by a 2-3 letter code.
 While this code is unique within the specific list, it is not usable as a globally unique identifier. 
 Therefore, a different identifier for the ConceptDescription has to be created. 
 The examples illustrate different ways this could be achieved without giving a recommendation.
+UNECE snapshots are depicted in Figures <<example_unece1>> and <<example_unece2>>.
 
 .Mapping recommendation and examples for UNECE REC 20
 [width="100%",cols="15%,5%,20%,20%,20%,20%"]
@@ -156,6 +163,7 @@ The examples illustrate different ways this could be achieved without giving a r
 |===
 
 .View of exemplary UNECE REC 20 entries (Revision 17, Annex I). Copyright by the United Nations Economic Commission for Europe (UNECE)
+[[example_unece1]]
 image::example_unece1.jpg[align="center"]
 
 .Mapping recommendation and examples for UNECE REC 21
@@ -178,11 +186,15 @@ image::example_unece1.jpg[align="center"]
 |===
 
 .View of exemplary UNECE REC 21 entries (Revision 12, Annexes V and VI). Copyright by United Nations Economic Commission for Europe
+[[example_unece2]]
 image::example_UNECE2.jpg[align="center"]
 
 === BIPM (Bureau International des Poids et Mesures) / SI Digital Framework
 
-The BIPM focuses on the maintenance of the SI unit definitions, but also provides a definition of selected non-SI units and constants. In case of compound units the SI digital framework provides a method to generate the PID and semantic definition based on the SI units. However, in these cases a quantity, verbal description and full name are not provided.
+The BIPM focuses on the maintenance of the SI unit definitions, but also provides a definition of selected non-SI units and constants. 
+In case of compound units the SI digital framework provides a method to generate the PID and semantic definition based on the SI units. 
+However, in these cases a quantity, verbal description and full name are not provided.
+BIPM snapshots are depicted in Figures <<example_BIPM1>> and <<example_BIPM2>>.
 
 .Mapping recommendation and examples for the SI Digital Framework
 [width="100%",cols="15%,5%,20%,20%,20%,20%"]
@@ -204,9 +216,11 @@ The BIPM focuses on the maintenance of the SI unit definitions, but also provide
 |===
 
 .View of the SI digital framework entry for the UoM Ampere. Copyright by BIPM
+[[example_BIPM1]]
 image::example_BIPM1.jpg[align="center", width=600]
 
 .View of the SI digital framework entry for the compound unit millimeter. Copyright by BIPM
+[[example_BIPM2]]
 image::example_BIPM2.jpg[align="center", width=600]
 
 === Other meta models

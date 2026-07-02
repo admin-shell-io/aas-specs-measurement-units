@@ -36,16 +36,19 @@ Instead, it is an own series of documents, each featuring a specific use case th
 [#general]
 == General
 
-Things are described by characteristics according to which things can be compared. 
-Characteristics that make things comparable by their magnitude are called quantity, e.g. a length or a temperature. 
-A unit defines the magnitude of a quantity, e.g. metre is a unit of the quantity length with a defined magnitude.
-Referencing a unit allows to state the magnitude of a charasteristic in comparison to that unit, e.g. "The cube has the length of 3 metres.".
-Not all quantities can be compared even if they share the same unit.
+Assets are described by characteristics according to which assets can be compared. 
+Characteristics that make assets comparable by their magnitude are called quantity, e.g. a length or a temperature. 
+A Unit of Measurement (UoM) defines the magnitude of a quantity, e.g. metre is a unit of the quantity length with a defined magnitude.
+Referencing a Unit of Measurement allows to state the magnitude of a charasteristic in comparison to that unit, e.g. "The cube has the length of 3 metres.".
+Not all quantities can be compared even if they share the same Unit of Measurement.
 E.g. torque and energy both have the physical unit newton-meters (Nm), but they belong to different quantities that cannot be compared.
-For that reason, in definitions units and quantities should always be given as a pair.
-Countable quantities are a special kind of quantity whose magnitude is given in discrete values, e.g. "number of pages of the document". [100, 101, 102]
+For that reason, in definitions units and quantities should always be given as a pair. [100, 101, 102]
 
-The data specification template specified in this document allows to use Units of Measurement (UoM) by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO/IEC 80000.
+====
+Note: Countable quantities are a special kind of quantity whose magnitude is given in discrete values, e.g. "number of pages of the document". 
+====
+
+The data specification template specified in this document allows to use Units of Measurement by providing a minimal set of attributes conformant to the relevant standards, especially IEC 61360 and ISO/IEC 80000.
 
 Different use cases for modelling Units of Measurement have to be distinguished.
 These use cases build up on one another:
@@ -177,26 +180,25 @@ Here the clear definition of the unit and its quantity is given.
 map Property {
     idShort => "heightOfController7411"
     description => "Height of Controller"
-    semanticId => type=ExternalReference, value=0173-1#02-BAA020#011
+    semanticId => type=ExternalReference, key/type=GlobalReference, key/value=0173-1#02-BAA020#011
     valueType => xs:real
     value => 54,4
 }
 
-map  DataSpecificationIec61360 {
-  administration =>
+map  "ConceptDescription with DataSpecificationIec61360" as ConceptDescription_with_DataSpecificationIec61360{
   id => 0173-1#02-BAA020#011
   idShort => "height"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
   preferredName  => "height"
   shortName => "height"
   unit => mm
-  unitId => type=ExternalReference, value=0173-1#05-AAA480#003
+  unitId => type=ExternalReference, key/type=GlobalReference, key/value=0173-1#05-AAA480#003
   symbol => "h"
   dataType => REAL_MEASURE
   definition => "with objects with preferred position of use, the dimension which is generally \nnew measured oriented to gravity and generally measured perpendicular to \nnew the supporting surface"
 }
 
-map DataSpecificationUnitOfMeasurement {
+map "ConceptDescription with DataSpecificationUnitOfMeasurement" as ConceptDescription_with_DataSpecificationUnitOfMeasurement {
   id => "0173-1#05-AAA480#003"
   idShort => "millimeter"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
@@ -210,8 +212,8 @@ map DataSpecificationUnitOfMeasurement {
   classificationSystemVersion => "14.0"
 }
 
- Property::semanticId --> DataSpecificationIec61360::id
- DataSpecificationIec61360::unitId --> DataSpecificationUnitOfMeasurement::id
+ Property::semanticId --> ConceptDescription_with_DataSpecificationIec61360::id
+ ConceptDescription_with_DataSpecificationIec61360::unitId --> ConceptDescription_with_DataSpecificationUnitOfMeasurement::id
 
 @enduml
 ....
@@ -244,7 +246,7 @@ As the _id_ of the Concept Description must be unique for different contents, th
 map property_1 {
     idShort => "heightOfControllerA"
     description => "Height of Controller"
-    semanticId => type=ExternalReference, value=0173-1#02-BAA020#012
+    semanticId => type=ExternalReference, key/value=0173-1#02-BAA020#012
     valueType => xs:real
     value => 54,4
 }
@@ -252,7 +254,7 @@ map property_1 {
 map property_2 {
     idShort => "heightOfControllerB"
     description => "Height of Controller"
-    semanticId => type=ConceptDescription, value=myHeight
+    semanticId => type=ModelReference, key/type=ConceptDescription, key/value=myHeight
     valueType => xs:real
     value => 17,2
 }
@@ -265,7 +267,7 @@ map  ConceptDescription_1_with_DataSpecificationIec61360 {
   preferredName  => "height"
   shortName => "height"
   unit => mm
-  unitId => type=ExternalReference, value=0173-1#05-AAA480#003
+  unitId => type=ExternalReference, key/type=GlobalReference, key/value==0173-1#05-AAA480#003
   symbol => h
 }
 
@@ -277,7 +279,7 @@ map  ConceptDescription_2_with_DataSpecificationIec61360 {
   preferredName  => "height"
   shortName => "height"
   unit => "cm"
-  unitId => type=ExternalReference, value=0173-1#05-AAA008#003
+  unitId => type=ExternalReference, key/type=GlobalReference, key/value==0173-1#05-AAA008#003
   symbol => h
 }
 
