@@ -42,7 +42,7 @@ A Unit of Measurement (UoM) defines the magnitude of a quantity, e.g. metre is a
 Referencing a Unit of Measurement allows to state the magnitude of a charasteristic in comparison to that unit, e.g. "The cube has the length of 3 metres.".
 Not all quantities can be compared even if they share the same Unit of Measurement.
 E.g. torque and energy both have the physical unit newton-meters (Nm), but they belong to different quantities that cannot be compared.
-For that reason, in definitions units and quantities should always be given as a pair. [100, 101, 102]
+For that reason, in definitions units and quantities should always be given as a pair xref:bibliography.adoc#bib100[[100\]], xref:bibliography.adoc#bib101[[101\]], xref:bibliography.adoc#bib102[[102\]].
 
 ====
 Note: Countable quantities are a special kind of quantity whose magnitude is given in discrete values, e.g. "number of pages of the document". 
