@@ -161,7 +161,9 @@ _DataSpecificationIec61360_ provides the attributes _DataSpecificationIec61360/u
 Thereby, _unit_ is a string with the textual representation of the unit of the value of the SubmodelElement.
 _unitId_ is a reference with a matching unique ID of that unit.
 
-When using the Data Specification Unit of Measurement the Reference _DataSpecificationIec61360/unitId_ does not reference an external data dictionary, but instead references _DataSpecificationUnitOfMeasurement/id_.
+When using the Data Specification Unit of Measurement the Reference _DataSpecificationIec61360/unitId_ does not reference an external data dictionary.
+Instead it references a _ConceptDescription_ via its _ConceptDescription/id_.
+The referenced _ConceptDescription_ shall have the _DataSpecificationContent_ _DataSpecificationUnitOfMeasurement_.
 This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>. 
 
 In that example a property with the _idShort_ "heightOfController7411" has been modelled. This property has the _value_ of "54,4" and its semantics is detailled in a _DataSpecification_ based on the ECLASS data dictionary entry "0173-1#02-BAA020#011".
@@ -186,7 +188,7 @@ map Property {
 }
 
 map  "ConceptDescription with DataSpecificationIec61360" as ConceptDescription_with_DataSpecificationIec61360{
-  id => 0173-1#02-BAA020#011
+  id => "0173-1#02-BAA020#011"
   idShort => "height"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationIec61360/3
   preferredName  => "height"
@@ -298,7 +300,7 @@ map ConceptDescription_1_with_DataSpecificationUnitOfMeasurement {
 
 map ConceptDescription_2_with_DataSpecificationUnitOfMeasurement {
   id => "0173-1#05-AAA008#003"
-  idShort => "millimeter"
+  idShort => "centimeter"
   dataSpecification => https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUnitOfMeasurement/3
   preferredName => "centimeter"
   symbol => "cm"
