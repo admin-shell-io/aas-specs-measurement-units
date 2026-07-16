@@ -166,12 +166,13 @@ Instead it references a _ConceptDescription_ via its _ConceptDescription/id_.
 The referenced _ConceptDescription_ shall have the _DataSpecificationContent_ _DataSpecificationUnitOfMeasurement_.
 This relation is illustrated exemplary in <<image-ex-dataspecification-UoM>>. 
 
-In that example a property with the _idShort_ "heightOfController7411" has been modelled. This property has the _value_ of "54,4" and its semantics is detailled in a _DataSpecification_ based on the ECLASS data dictionary entry "0173-1#02-BAA020#011".
-The _semanticId_ references the _id_ of the appropriate _DataSpecification_ (_DataSpecificationIec61360_). 
-Through the _DataSpecification_ it is defined that the property is a height and the property's _value_ is given in the _unit_ "mm". 
-Analogously to this procedure the semantics of this unit is described in a _DataSpecification_ (_DataSpecificationUnitOfMeasurement_) based on the ECLASS data dictionary entry "0173-1#05-AAA480#003". 
-The _unitId_ references the _id_ of the appropriate _DataSpecification_. 
-Here the clear definition of the unit and its quantity is given. 
+In that example a property with the _idShort_ "heightOfController7411" has been modelled. This property has the _value_ of "54,4" and its semantics is detailled by the ECLASS data dictionary entry "0173-1#02-BAA020#011".
+In this example a _ConceptDescription_ is supplied which contains this semantic information.
+The _semanticId_ references the appropriate _ConceptDescription_ with the _DataSpecificationContent_ _DataSpecificationIec61360_. 
+Here it is defined that the property is a height and the property's _value_ is given in the _unit_ "mm". 
+Analogously, the _unitId_ references the _ConceptDescription_ with the _DataSpecificationContent_ _DataSpecificationUnitOfMeasurement_
+Here the definition of the unit and its quantity is given.
+In this example the definition is supplied by the ECLASS data dictionary entry "0173-1#05-AAA480#003". 
 
 .Exemplary usage of Data Specification Unit of Measurement
 
@@ -224,16 +225,16 @@ map "ConceptDescription with DataSpecificationUnitOfMeasurement" as ConceptDescr
 
 This subsection states some general remarks for working with Units of Measurement that have proven to be helpful when kept in mind.
 
-- if only a _semanticId_ is provided for a quantitative or measurable property but no ConceptDescription with _DataSpecification61360_ then the primary unit is used.
+- If only a _semanticId_ is provided for a quantitative or measurable property but no _ConceptDescription_ with _DataSpecification61360_ then the primary/default unit according to the respective data dictionary shall be used.
 
-- If the ConceptDescription provided for quantitative or measurable property is incomplete and neither a _unit_ nor a _unitId_ is supplied in _DataSpecification61360_ (IDTA-01003-a), the primary unit of the property definition according to the semantic repository is used.  The semantic repository is identified indirectly via the ConceptDescription/id.
+- Analogously, if the _ConceptDescription_ provided for quantitative or measurable property is incomplete and neither a _unit_ nor a _unitId_ is supplied in _DataSpecification61360_ (IDTA-01003-a), the primary/default unit according to the respective data dictionary shall be used.
 
-- If the the applied semantic repository does not define a primary or default unit for a quantitative or measurable property, then a ConceptDescription shall be supplied that defines either _unit_ or _unitId_.
+- If the the respective data dictionary does not define a primary or default unit for a quantitative or measurable property, then a _ConceptDescription_ shall be supplied that defines _unit_ or _unitId_.
 
-- If a _unit_ or _unitId_ is supplied that differs from the original property's data dictionary entry, then the entry in the Data Specification takes precendence.
+- If a _unit_ or _unitId_ is supplied that differs from the original property's data dictionary entry, then the entry in the _ConceptDescription_ takes precendence.
 
 - Using a unit that differs from the primary or default unit of the property's data dictionary entry does not break the semantic of that property.
-The whole purpose of a stringent semantic UoM data dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one unit to another. 
+The whole purpose of a stringent semantic UoM data dictionary is to create interoperability by enabling applications to convert the _value_ of properties from one UoM to another. 
 
 - If needed, it is possible to model multiple properties that have the identical data dictionary entry with different UoM.
 However, because Concept Descriptions are unique (identifiable) this modelling task is quite complicated and therefore not recommended.
