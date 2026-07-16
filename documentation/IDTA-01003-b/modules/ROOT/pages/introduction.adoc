@@ -170,7 +170,7 @@ In that example a property with the _idShort_ "heightOfController7411" has been 
 In this example a _ConceptDescription_ is supplied which contains this semantic information.
 The _semanticId_ references the appropriate _ConceptDescription_ with the _DataSpecificationContent_ _DataSpecificationIec61360_. 
 Here it is defined that the property is a height and the property's _value_ is given in the _unit_ "mm". 
-Analogously, the _unitId_ references the _ConceptDescription_ with the _DataSpecificationContent_ _DataSpecificationUnitOfMeasurement_
+Analogously, the _unitId_ references the _ConceptDescription_ with the _DataSpecificationContent_ _DataSpecificationUnitOfMeasurement_.
 Here the definition of the unit and its quantity is given.
 In this example the definition is supplied by the ECLASS data dictionary entry "0173-1#05-AAA480#003". 
 
@@ -198,7 +198,7 @@ map  "ConceptDescription with DataSpecificationIec61360" as ConceptDescription_w
   unitId => type=ExternalReference, key/type=GlobalReference, key/value=0173-1#05-AAA480#003
   symbol => "h"
   dataType => REAL_MEASURE
-  definition => "with objects with preferred position of use, the dimension which is generally \nnew measured oriented to gravity and generally measured perpendicular to \nnew the supporting surface"
+  definition => "with objects with preferred position of use, the dimension which is generally \n measured oriented to gravity and generally measured perpendicular to \n the supporting surface"
 }
 
 map "ConceptDescription with DataSpecificationUnitOfMeasurement" as ConceptDescription_with_DataSpecificationUnitOfMeasurement {
