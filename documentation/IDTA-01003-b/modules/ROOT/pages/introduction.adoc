@@ -227,7 +227,7 @@ This subsection states some general remarks for working with Units of Measuremen
 
 - If only a _semanticId_ is provided for a quantitative or measurable property but no _ConceptDescription_ with _DataSpecification61360_ then the primary/default unit according to the respective data dictionary shall be used.
 
-- Analogously, if the _ConceptDescription_ provided for quantitative or measurable property is incomplete and neither a _unit_ nor a _unitId_ is supplied in _DataSpecification61360_ (IDTA-01003-a), the primary/default unit according to the respective data dictionary shall be used.
+- If the _ConceptDescription_ is provided for a quantitative or measurable property a _unit_ or a _unitId_ shall be supplied in _DataSpecification61360_ (IDTA-01003-a).
 
 - If the the respective data dictionary does not define a primary or default unit for a quantitative or measurable property, then a _ConceptDescription_ shall be supplied that defines _unit_ or _unitId_.
 
