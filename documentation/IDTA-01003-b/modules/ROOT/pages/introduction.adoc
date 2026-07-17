@@ -257,7 +257,7 @@ map property_1 {
 map property_2 {
     idShort => "heightOfControllerB"
     description => "Height of Controller"
-    semanticId => type=ModelReference, key/type=ConceptDescription, key/value=myHeight
+    semanticId => type=ExternalReference, key/type=GlobalReference, key/value=myHeight
     valueType => xs:real
     value => 17,2
 }
