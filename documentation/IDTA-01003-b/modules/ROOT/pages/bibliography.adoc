@@ -1,0 +1,74 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+////
+
+[bibliography]
+= Bibliography
+
+[#bib1]
+[1] IDTA-01001 "Specification of the Asset Administration Shell Part 1 – Metamodel".
+See xref:bibliography.adoc#bib22[[22\]].
+
+[#bib12]
+[12] "OMG Unified Modelling Language (OMG UML)".
+Version 2.5.1. December 2017. 
+[Online]. 
+Available: https://www.omg.org/spec/UML/2.5.1
+
+[#bib13]
+[13] T. Preston-Werner "Semantic Versioning".
+Version 2.0.0. Accessed: 2020-11-13. 
+[Online] Available: https://semver.org/spec/v2.0.0.html
+
+[#bib15]
+[15] "Asset Administration Shell. Reading Guide".
+Industrial Digital Twin Association.
+November 2024. 
+[Online].
+Available: https://industrialdigitaltwin.org/wp-content/uploads/2024/11/2024-11_IDTA_AAS-Reading-Guide.pdf
+
+[#bib16]
+[16] Top Level Project "Eclipse Digital Twin" Available: https://projects.eclipse.org/projects/dt
+
+[#bib22]
+[22] "Asset Administration Shell Specifications". 
+[Online].
+Available: https://industrialdigitaltwin.io
+
+[#bib23]
+[23] (German) "I4.0-Sprache.
+Vokabular, Nachrichtenstruktur und semantische Interaktionsprotokolle der I4.0-Sprache". 
+Discussion Paper.
+Plattform Industrie 4.0 
+[Online]. 
+Available: https://www.plattform-i40.de/IP/Redaktion/DE/Downloads/Publikation/hm-2018-sprache.html
+
+[#bib24]
+[24] "How to create a submodel template specification".
+Dec. 2022. Industrial Digital Twin Association.
+[Online].
+Available: https://industrialdigitaltwin.org/wp-content/uploads/2022/12/I40-IDTA-WS-Process-How-to-write-a-SMT-FINAL-.pdf
+
+[#bib100]
+[100] "International vocabulary of metrology — Basic and general concepts and associated terms (VIM)".
+2008. BIPM.
+[Online].
+Available: http://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2008.pdf
+
+[#bib101]
+[101] "ISO/IEC 80000-1. Quantities and units - Part 1: General".
+2022. ISO/IEC.
+
+[#bib102]
+[102] "IEC 61360. Standard data element types with associated classification scheme".
+2017. IEC.
+
+
+
+
+

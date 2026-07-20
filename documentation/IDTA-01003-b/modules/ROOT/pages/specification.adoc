@@ -1,0 +1,291 @@
+////
+Copyright (c) 2023 Industrial Digital Twin Association
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](
+https://creativecommons.org/licenses/by/4.0/). 
+
+SPDX-License-Identifier: CC-BY-4.0
+
+////
+
+include::includes/constraints.adoc[]
+
+= Specification
+
+== Predefined Template for UoM for submodel elements with values (normative)
+
+=== Data Specification Unit of Measurement Template Specification 
+
+This specification is only valid in combination with IDTA-01001-3 and IDTA-01003-a-3.
+
+{empty}
+
+[width="100%",cols="20%,20%,20%,40%"]
+|===
+h|*Template:* 3+|Unit of Measurement
+h|*administration:* |version: 3 |revision: 0 |creator: IDTA
+
+h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3`  
+
+h|*dataSpecificationContent:* 3+|DataSpecificationUoM   
+h|*Description (EN):* 3+a|Data specification template for concept descriptions for Units of Measurement.
+|===
+
+The ID of the data specification template was derived conformant to the grammar for semantic IDs for data specifications as defined in Part 1 of the document series, IDTA-01001, with the exception that the minor version was excluded because this ID is also part of the instances of Asset Administration Shells: 
+This ID is used in _hasDataSpecification/dataSpecification_.
+
+This namespace has the qualifier "UoM:". 
+
+.Metamodel of Data Specification Unit of Measurement
+[[image-4-metamodel-UoM]]
+[plantuml, image-4-metamodel-UoM, svg]
+....
+@startuml
+class DataSpecificationUoM<DataSpecificationContent> <<Template>> {
+  +preferredName: LangStringSetUoM
+  +symbol: StringUoM
+  +specificUnitID: StringUoM[0..1]
+  +definition: DefinitionTypeUoM[0..1]
+  +preferredNameQuantity: LangStringSetUoM[0..1]
+  +quantityID: IdentifierUoM[0..1]
+  +classificationSystem: StringUoM[0..1]
+  +classificationSystemVersion: StringUoM[0..1]
+}
+@enduml
+....
+
+=== Identifikation of the Concept Description
+
+The identification of the Concept Description, _conceptDescription/id_, should be identical to the unique global identifier of the Unit of Measurement, if available. 
+If no unique global identifier is available, the _conceptDescription/id_ can be chosen arbitrarily.
+In this case the unit's identifier as defined by the classification system must be denoted in the attribute _xref:data-specification-content-specificunitid[specificUnitID]_ (see below). 
+
+=== Data Specification Attributes
+
+[width="100%",cols="19%,47%,27%,7%"]
+|===
+h|*Class:* 3+e|DataSpecificationUoM  \<<Template>>
+h|*Explanation:* 3+a|Content of data specification template for concept descriptions for Units of Measurement
+h|*Inherits from:* 3+|DataSpecificationContent
+
+h|*id:* 3+a|`\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM`  
+
+.2+h|*Attribute:* 3+h| ID
+h|Explanation h| Type h| Card.
+
+// preferredName
+.2+e|[[data-specification-content-preferred-name]]preferredName 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/preferredName`
+
+a|
+Preferred name of the unit in different languages as defined by the classification system
+
+Example: "millimetre"
+
+|xref:LangStringSetUoM[LangStringSetUoM] |1
+
+// symbol
+.2+e|[[data-specification-content-symbol]]symbol 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/symbol`
+
+a|
+Symbol of the unit
+
+Example: “mm”
+
+|xref:StringUoM[StringUoM] |1
+
+// specificUnitID
+.2+e|[[data-specification-content-specificunitid]]specificUnitID 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/specificUnitID`
+
+a|
+ID of the unit defined by the classification system
+
+====
+Note: This is relevant if the classification system references the units differently from the unique _conceptDescription/id_.  
+This can e.g. be UNECE common codes or proprietary keys.
+====
+Example: "MMT"
+
+|xref:StringUoM[StringUoM] |0..1
+
+// definition
+.2+e|[[data-specification-content-definition]]definition 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/definition`
+
+a|
+Definition of the unit in different languages
+
+Example: "0,001 fold of the SI base unit metre"@en
+
+|xref:DefinitionTypeUoM[DefinitionTypeUoM] |0..1
+
+// preferredNameQuantity
+.2+e|[[data-specification-content-preferredNameQuantity]]preferredNameQuantity 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/preferredNameQuantity`
+
+a|
+Preferred name of the unit's quantity in different languages as defined by the classification system.
+
+_preferredNameQuantity_ and _quantityID_ must be consistent if both attributes are set.
+
+If the classification system lists multiple quantities for the unit, exactly one of those quantities must be selected in accordance with the properties purpose.  
+
+Example: "distance"
+
+|xref:LangStringSetUoM[LangStringSetUoM] |0..1
+
+// quantityId
+.2+e|[[data-specification-content-quantityId]]quantityId 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/quantityId`
+
+a|
+ID of the unit's quantity.
+
+preferredNameQuantity and quantityID must be consistent if both attributes are set
+
+Example:  0173-1#Z4-BAJ199#002
+
+
+|xref:IdentifierUoM[IdentifierUoM] |0..1
+
+// ClassificationSystem
+.2+e|[[data-specification-content-classificationSystem]]classificationSystem 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/classificationSystem`
+
+a|
+Name of the classification system used for the definition of units and quantities
+
+====
+Note: The most prominent classification systems should be denoted as follows:
+"ECLASS", "IEC CDD", "UNECE Rec 20", "UNECE Rec 21", "BIPM", "OPC UA", "SAMM".
+
+This list is not exclusive.
+====
+
+Example: "ECLASS Basic"
+
+
+|xref:StringUoM[StringUoM] |0..1
+
+// ClassificationSystemVersion
+.2+e|[[data-specification-content-classificationSystemVersion]]classificationSystemVersion 3+| `\https://admin-shell.io/DataSpecificationTemplates/DataSpecificationUoM/3/0/DataSpecificationUoM/classificationSystemVersion`
+
+a|
+Version of the classification system used for the definition of units and quantities
+
+The version shshould be denoted exactly as provided by the classification system.
+
+Example: "15.0"
+
+
+|xref:StringUoM[StringUoM] |0..1
+
+|===
+
+
+
+[#primitive-and-simple-data-types-normative]
+== Primitive and Simple Data Types (normative)
+
+All simple data types from link:https://industrialdigitaltwin.io/aas-specifications/IDTA-01001/v3.1/spec-metamodel/datatypes.html#predefined_simple_data_types[Part 1] xref:bibliography.adoc#bib1[[1\]] apply also to the specifications described in this document.
+
+=== Basic and Primitive Data Types
+
+<<table-primitive-data-types>> lists the Primitives used in the metamodel.
+Primitive data types start with a capital letter.
+
+.Primitive DataTypes Used in Metamodel
+[[table-primitive-data-types]]
+[width="100%",cols="27%,31%,42%",options="header",]
+|===
+|*Primitive* |*Definition* |*Value Examples*
+
+|LangStringSet a|
+Array of elements of type _langString_
+
+====
+Note 1: _langString_ is a RDF data type
+====
+====
+Note 2: a _langString_ is a string value tagged with a language code
+====
+
+The realization of a _langString_ depends on the serialization rules for a technology as defined in Part 1 Metamodel, IDTA-01001. 
+
+a|
+In xml:
+
+[source,xml]
+----
+<aas:langString lang="EN">This is a multi-language value in English</aas:langString>
+<aas:langString lang="DE">Das ist ein Multi-Language-Wert in Deutsch</aas:langString>
+----
+
+In rdf:
+[source,rdf]
+----
+"This is a multi-language value in English"@en ;
+"Das ist ein Multi-Language-Wert in Deutsch"@de
+----
+
+In JSON:
+
+[source,json,linenums]
+----
+"description": [
+   {
+     "language":"en",
+     "text": "This is a multi-language value in English."
+   },
+   {
+     "language":"de",
+     "text": "Das ist ein Multi-Language-Wert in Deutsch."
+   }
+]
+----
+
+|[[LangStringSetUoM]]LangStringSetUoM a|
+_LangStringSet_ 
+
+Each _langString_ within the array of _strings_ has a length of maximum 256 and a minimum of 1 characters.
+
+a|
+(see examples for _LangStringSet_)
+
+|[[DefinitionTypeUoM]]DefinitionTypeUoM
+|_LangStringSet_
+
+Each _langString_ within the array of _strings_ has a length of maximum 2048 and a minimum of 1 characters.
+|"0,001 fold of the SI base unit metre"@en
+
+(also see examples for _LangStringSet_)
+
+|[[StringUoM]]StringUoM
+a|_string_
+
+A _string_ with a length of maximum 256 and a minimum of 1 characters.
+
+====
+Note: _string_ is a xsd data type
+====
+
+|"OPC UA"
+
+(also see examples for _LangStringSet_)
+
+|[[IdentifierUoM]]IdentifierUoM
+a|_string_
+
+A _string_ with a length of maximum 2048 and a minimum of 1 characters.
+
+====
+Note: _string_ is a xsd data type
+====
+
+|"0173-1#02-BAA120#008"
+
+(also see examples for _LangStringSet_)
+
+|===
+
+[#mappings-to-data-formats-to-share-i40-compliant-information-normative]
+== Mappings to Data Formats to Share I4.0-Compliant Information (normative)
+
+Part 1 of this document series (IDTA-01001) introduces different serialization formats: XML, JSON and RDF.
+Part 1 also introduces the implementation guide for embedded data specifications.
+This is why the different formats are described in IDTA-01001.
